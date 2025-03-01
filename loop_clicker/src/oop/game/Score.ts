@@ -3,7 +3,7 @@
  */
 type Listener = () => void;
 
-export default class Game {
+export default class Score {
     private score: number = 0;  //score
     private listeners: Listener[] = []; //listeners subscribed to.
 
@@ -14,6 +14,10 @@ export default class Game {
     public incrementScore(amount: number) {
         this.score += amount;
         this.notify();
+    }
+
+    public getScore(){
+        return this.score;
     }
 
     public subscribe(listener: Listener) { 
