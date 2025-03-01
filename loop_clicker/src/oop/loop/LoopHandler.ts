@@ -34,4 +34,8 @@ export default class LoopHandler {
         this.listeners.forEach((listener) => listener());
     }
 
+    public getLoop() {
+        return this.loop;
+    }
+
 }
