@@ -9,6 +9,7 @@ export default function Loop () {
         <>
             <img 
             src={`/src/assets/elastic_placeholder.png`}
+            draggable="false"
             style={{
                 left: `${left}px`,
                 top: `${top}px`,

@@ -9,6 +9,7 @@ export default function LoopBunch() {
         <>
             <img
             src={`/src/assets/elastic_ball_placeholder.png`}
+            draggable="false"
             style={{
                 left: `${left}px`,
                 top: `${top}px`,
