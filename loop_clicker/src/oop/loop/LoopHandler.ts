@@ -6,8 +6,11 @@ import Loop from "./Loop";
 import Elastic from "./Elastic";
 import LargeHadronCollider from "./LargeHadronCollider";
 
+type Listener = () => void;
+
 export default class LoopHandler {
     private loop: Loop | null;
+    private listeners : Listener[] = [];
 
     constructor () {
         this.loop = new Elastic();
@@ -16,7 +19,19 @@ export default class LoopHandler {
     public doChangeLoop(score: number) {
         if (score >= 10) {
             this.loop = new LargeHadronCollider();
+            this.notify();
         }
+    }
+
+    public subscribe(listener: Listener) { 
+        this.listeners.push(listener);
+            return () => {
+                this.listeners = this.listeners.filter((l) => l !== listener);
+            }
+    }
+
+    private notify() {
+        this.listeners.forEach((listener) => listener());
     }
 
 }

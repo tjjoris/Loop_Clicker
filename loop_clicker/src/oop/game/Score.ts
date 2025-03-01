@@ -1,11 +1,20 @@
 /**
  * game class stores overall score.
  */
+
+
+import LoopHandler from "../loop/LoopHandler";
+
 type Listener = () => void;
 
 export default class Score {
     private score: number = 0;  //score
     private listeners: Listener[] = []; //listeners subscribed to.
+    private loopHandler : LoopHandler;
+
+    constructor(loopHandler: LoopHandler) {
+        this.loopHandler = loopHandler;
+    }
 
     /**
      * increase the score by an amount.
@@ -13,6 +22,7 @@ export default class Score {
      */
     public incrementScore(amount: number) {
         this.score += amount;
+        this.loopHandler.doChangeLoop(this.score);
         this.notify();
     }
 
