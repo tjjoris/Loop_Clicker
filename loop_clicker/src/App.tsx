@@ -15,7 +15,10 @@ function App() {
     <div
       onClick={() => {scoreObject.incrementScore(1);}}
       style={{
-        userSelect: "none"
+        userSelect: "none",
+        width: "100vw",
+        height: "100vh",
+        background: "grey"
       }}
       >
       <ScoreComponent scoreObject = {scoreObject}/>
