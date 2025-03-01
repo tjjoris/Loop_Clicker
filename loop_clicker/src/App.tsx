@@ -6,10 +6,12 @@ import Loop from './components/Loop'
 import LoopBunch from './components/LoopBunch'
 import ScoreComponent from './components/ScoreComponent'
 import Score from './oop/game/Score'
+import LoopHandler from './oop/loop/LoopHandler'
 
 function App() {
-  const [count, setCount] = useState(0)
-  const scoreObject = new Score();
+  const [count, setCount] = useState(0);
+  const loopHandler = new LoopHandler();
+  const scoreObject = new Score(loopHandler);
 
   return (
     <div
@@ -18,7 +20,7 @@ function App() {
         userSelect: "none",
         width: "100vw",
         height: "100vh",
-        background: "grey"
+        backgroundColor: "black"
       }}
       >
       <ScoreComponent scoreObject = {scoreObject}/>
