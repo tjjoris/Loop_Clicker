@@ -1,11 +1,29 @@
-
+/**
+ * game class stores overall score.
+ */
 type Listener = () => void;
 
 export default class Game {
-    private score: number;
+    private score: number = 0;  //score
+    private listeners: Listener[] = []; //listeners subscribed to.
 
+    /**
+     * increase the score by an amount.
+     * @param amount 
+     */
     public incrementScore(amount: number) {
         this.score += amount;
-        notify();
+        this.notify();
+    }
+
+    public subscribe(listener: Listener) { 
+        this.listeners.push(listener);
+            return () => {
+                this.listeners = this.listeners.filter((l) => l !== listener);
+            }
+    }
+
+    private notify() {
+    this.listeners.forEach((listener) => listener());
     }
 }
