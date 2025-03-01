@@ -26,6 +26,9 @@ function App() {
         </p>
       </div>
       <p className="read-the-docs">
+        This is a placeholder React project to test upload capabilities to itch.io.
+      </p>
+      <p>
         Click on the Vite and React logos to learn more
       </p>
     </>
