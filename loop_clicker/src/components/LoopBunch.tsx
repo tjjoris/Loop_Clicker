@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function LoopBunch() {
+export default function LoopBunchComponent() {
     let left : number = 100;
     let top : number = 100;
     let width: number = 100;
