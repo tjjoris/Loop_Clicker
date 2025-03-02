@@ -12,6 +12,7 @@ export default function ScoreComponent({scoreObject}: {scoreObject: Score}) {
         decimalIndicator = " million";
         scoreDisplayStr = scoreDisplay.toFixed(2);
     }
+    scoreDisplayStr = scoreDisplayStr + decimalIndicator;
     
     return (
         <div

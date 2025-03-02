@@ -13,9 +13,9 @@ export default class Upgrades {
     private listeners : Listener[] = [];
     private scoreUpgradeObserver: ScoreUpgradeObserver;
 
-    constructor(score: Score) {
+    constructor(score: Score, scoreUpgradeObserver: ScoreUpgradeObserver) {
         this.state[0] = new ScissorsUpgrade(score);
-        this.scoreUpgradeObserver = new ScoreUpgradeObserver();
+        this.scoreUpgradeObserver = scoreUpgradeObserver;
         this.scoreUpgradeObserver.subscribe(this.state[0]);
         this.notify();
 
