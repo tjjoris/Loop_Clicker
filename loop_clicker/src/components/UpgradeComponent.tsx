@@ -13,10 +13,19 @@ export default function UpgradeComponent({upgrade}: {upgrade: Upgrade}) {
     let iterationAmountStr: string = iterationAmount.toFixed(2);
     let cost: number = state.cost;
     let costStr: string = cost.toFixed(2);
+    let backgColour: string = "grey"
+    if (state.canAfford) {
+        backgColour= "#1a1a1a"
+    }
 
     return (
         <>
-            <button onClick={() => {upgrade.incrementLevel();}}>
+            <button 
+                onClick={() => {upgrade.incrementLevel();}}
+                style={{
+                    backgroundColor: backgColour
+                }}
+            >
                 <p>
                     {name}
                 </p>

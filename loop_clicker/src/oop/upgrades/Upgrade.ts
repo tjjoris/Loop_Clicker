@@ -48,6 +48,11 @@ export default class Upgrade {
             }
     }
 
+    public update() {
+        this.state = {canAfford : this.score.isAfford(this.state.cost),
+             name: this.state.name, cost: this.state.cost, iterationAmount: this.state.iterationAmount, count: this.state.count}
+    }
+
     private notify() {
         this.listeners.forEach((listener) => listener());
     }
