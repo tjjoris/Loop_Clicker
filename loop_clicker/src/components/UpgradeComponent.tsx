@@ -14,7 +14,7 @@ export default function UpgradeComponent({upgrade}: {upgrade: Upgrade}) {
 
     return (
         <>
-            <button>
+            <button onClick={() => {upgrade.incrementLevel();}}>
                 <p>
                     {name}
                 </p>
