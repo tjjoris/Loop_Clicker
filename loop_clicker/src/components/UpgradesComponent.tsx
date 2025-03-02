@@ -3,7 +3,6 @@ import Upgrades from "../oop/upgrades/Upgrades";
 
 export default function UpgradesComponent({upgrades}: {upgrades: Upgrades}) {
     const state = useUpgradesStore(upgrades)
-    let name : String = state[0].name;
     let x = 300;
     let y = 100;
 
@@ -16,7 +15,7 @@ export default function UpgradesComponent({upgrades}: {upgrades: Upgrades}) {
                 top: `${y}px`
             }}
             >
-                {name}
+                upgrades
             </button>
         </>
     )

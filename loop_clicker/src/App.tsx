@@ -12,12 +12,12 @@ import Upgrades from './oop/upgrades/Upgrades'
 import UpgradesComponent from './components/UpgradesComponent'
 
 function App() {
-  const upgradesRef = useRef(new Upgrades());
-  const upgrades = upgradesRef.current;
   const loopHandlerRef = useRef(new LoopHandler());
   const loopHandler = loopHandlerRef.current;
   const scoreObjectRef = useRef(new Score(loopHandler));
   const scoreObject = scoreObjectRef.current;
+  const upgradesRef = useRef(new Upgrades(scoreObject));
+  const upgrades = upgradesRef.current;
   const loopHandlerState: Loop | null = useLoopHandlerStore(loopHandler);
   console.log("loop handler state " + loopHandlerState);
   return (

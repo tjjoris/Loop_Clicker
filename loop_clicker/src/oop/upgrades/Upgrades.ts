@@ -8,12 +8,12 @@ import Score from "../game/Score";
 type Listener = () => void;
 
 export default class Upgrades {
-    private state : {upgrade: Upgrade; name: string; info: string}[] = [];
+    private state : Upgrade[] = []
     private listeners : Listener[] = [];
 
     constructor(score: Score) {
-        let scissorsUpgrade: Upgrade = new ScissorsUpgrade(score);
-        this.state[0] = {upgrade: scissorsUpgrade, name: scissorsUpgrade.getName(), info: scissorsUpgrade.getInfo()}
+        this.state[0] = new ScissorsUpgrade(score);
+        this.notify();
     }
 
     public getState() {
