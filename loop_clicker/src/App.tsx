@@ -12,7 +12,8 @@ import { useRef } from 'react'
 function App() {
   const loopHandlerRef = useRef(new LoopHandler());
   const loopHandler = loopHandlerRef.current;
-  const scoreObject = new Score(loopHandler);
+  const scoreObjectRef = useRef(new Score(loopHandler));
+  const scoreObject = scoreObjectRef.current;
   const loopHandlerState: Loop | null = useLoopHandlerStore(loopHandler);
   console.log("loop handler state " + loopHandlerState);
   return (

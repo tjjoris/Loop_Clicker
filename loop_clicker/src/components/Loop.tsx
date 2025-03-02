@@ -1,4 +1,4 @@
-
+import elastic_placeholder from "/assets/elastic_placeholder.png"
 
 export default function LoopComponent () {
     let left : number = 100;
@@ -8,7 +8,7 @@ export default function LoopComponent () {
     return (
         <>
             <img 
-            src={`/src/assets/elastic_placeholder.png`}
+            src={elastic_placeholder}
             draggable="false"
             style={{
                 left: `${left}px`,
