@@ -1,5 +1,7 @@
+import Score from "../game/Score";
 
 export default class Upgrade {
+        protected score: Score
         protected name: string; //the name of the upgrade
         protected info: string; //info on the upgrade
         protected iterationAmount: number; //the current iteration amount, increases with each upgrade by iteraton by initialIteration
@@ -10,7 +12,8 @@ export default class Upgrade {
         protected iterationMult: number; //the amount the iteration increase multiplies with each level.
         protected costMult: number; //the amount the cost cost increase multiplies with each level.
 
-        constructor () {
+        constructor (score: Score) {
+            this.score = score;
             this.name = "placeholder name";
             this.info = "placholder info";
             this.count = 0;
@@ -36,5 +39,6 @@ export default class Upgrade {
         this.iterationIncrease *= this.iterationMult;
         this.iterationAmount += this.iterationIncrease;
         this.info = " level: " + this.count + " cost: " + this.cost + " amount: " + this.iterationAmount;
+        this.score.addIncrementAmount(this.iterationAmount);
     }
 }
