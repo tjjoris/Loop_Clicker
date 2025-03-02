@@ -10,7 +10,9 @@ export default function UpgradeComponent({upgrade}: {upgrade: Upgrade}) {
     let name: string = state.name;
     let count: number = state.count;
     let iterationAmount: number = state.iterationAmount;
+    let iterationAmountStr: string = iterationAmount.toFixed(2);
     let cost: number = state.cost;
+    let costStr: string = cost.toFixed(2);
 
     return (
         <>
@@ -22,10 +24,10 @@ export default function UpgradeComponent({upgrade}: {upgrade: Upgrade}) {
                     count: {count}
                 </p>
                 <p>
-                    cost: {cost}
+                    cost: {costStr}
                 </p>
                 <p>
-                    iteration amount {iterationAmount}
+                    iteration amount {iterationAmountStr}
                 </p>
             </button>
         </>

@@ -21,31 +21,27 @@ function App() {
   const loopHandlerState: Loop | null = useLoopHandlerStore(loopHandler);
   console.log("loop handler state " + loopHandlerState);
   return (
-    <div
-      onClick={() => {scoreObject.incrementScore(1);}}
-      style={{
-        userSelect: "none",
-        width: "100vw",
-        height: "100vh",
-        backgroundColor: "#242424"
-      }}
-      >
-      <ScoreComponent scoreObject = {scoreObject}/>
-      <LoopBunch/>
-      {loopHandlerState && <LoopComponent/>}
+    <>
+      <div
+        onClick={() => {scoreObject.incrementScore(1);}}
+        style={{
+          userSelect: "none",
+          width: "100px",
+          height: "100px",
+          backgroundColor: "#242424"
+        }}
+        >
+        <LoopBunch/>
+        {loopHandlerState && <LoopComponent/>}
+      </div>
       <div>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
+        <ScoreComponent scoreObject = {scoreObject}/>
+        <p className="read-the-docs">
+          {}
         </p>
+        <UpgradesComponent upgrades={upgrades}/>
       </div>
-      <p className="read-the-docs">
-        {}
-      </p>
-      <UpgradesComponent upgrades={upgrades}/>
-    </div>
+    </>
   )
 }
 

@@ -8,11 +8,17 @@ export default function UpgradesComponent({upgrades}: {upgrades: Upgrades}) {
     let y = 100;
 
     return (
-        <>
+        <div
+            style={{
+                position:"absolute",
+                left:"300px",
+                top:"200px"
+            }}
+        >
             {state.map((upgrade) => {
                 return <UpgradeComponent upgrade={upgrade} />;
                 // return <p> hello</p>
             })}
-        </>
+        </div>
     )
 }

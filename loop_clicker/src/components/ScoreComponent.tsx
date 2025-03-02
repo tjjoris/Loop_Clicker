@@ -4,19 +4,26 @@ import Score from "../oop/game/Score";
 export default function ScoreComponent({scoreObject}: {scoreObject: Score}) {
     //set the number to the object state value
     const score: number = useScoreStore(scoreObject);
-    let scoreDisplay = Math.floor(score);
+    let scoreDisplay: number = Math.floor(score);
     let decimalIndicator: string = ""
+    let scoreDisplayStr : string = scoreDisplay.toString();
     if (scoreDisplay >= 1000000) {
         scoreDisplay = (scoreDisplay / 1000);
         decimalIndicator = " million";
+        scoreDisplayStr = scoreDisplay.toFixed(2);
     }
-    let scoreDisplaySting: string = scoreDisplay.toString() + decimalIndicator;
     
     return (
-        <>
+        <div
+            style={{
+                position: "absolute",
+                left:"300px",
+                top:"100px"
+            }}
+        >
             <h1>
-                Score: {scoreDisplaySting}
+                Score: {scoreDisplayStr}
             </h1>
-        </>
+        </div>
     )
 }
