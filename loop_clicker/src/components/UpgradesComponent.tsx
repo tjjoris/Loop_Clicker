@@ -1,5 +1,6 @@
 import { useUpgradesStore } from "../oop/upgrades/useUpgradesStore";
 import Upgrades from "../oop/upgrades/Upgrades";
+import UpgradeComponent from "./UpgradeComponent";
 
 export default function UpgradesComponent({upgrades}: {upgrades: Upgrades}) {
     const state = useUpgradesStore(upgrades)
@@ -8,15 +9,10 @@ export default function UpgradesComponent({upgrades}: {upgrades: Upgrades}) {
 
     return (
         <>
-            <button 
-            style={{
-                position: "absolute",
-                left: `${x}px`,
-                top: `${y}px`
-            }}
-            >
-                upgrades
-            </button>
+            {state.map((upgrade) => {
+                return <UpgradeComponent upgrade={upgrade} />;
+                // return <p> hello</p>
+            })}
         </>
     )
 }
