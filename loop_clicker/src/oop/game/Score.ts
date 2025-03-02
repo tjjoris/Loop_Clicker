@@ -11,9 +11,11 @@ export default class Score {
     private score: number = 0;  //score
     private listeners: Listener[] = []; //listeners subscribed to.
     private loopHandler : LoopHandler;
+    private incrementAmount: number = 0;
 
     constructor(loopHandler: LoopHandler) {
         this.loopHandler = loopHandler;
+        this.startInterval(1000/30);
     }
 
     /**
@@ -35,6 +37,21 @@ export default class Score {
             return () => {
                 this.listeners = this.listeners.filter((l) => l !== listener);
             }
+    }
+
+    public addIncrementAmount (amount: number) {
+        this.incrementAmount += amount;
+    }
+
+    private startInterval(rate: number) {
+        setInterval(() => {
+            this.increment();
+        } , rate);
+    }
+
+    private increment() {
+        this.score += this.incrementAmount;
+        this.notify();
     }
 
     private notify() {
