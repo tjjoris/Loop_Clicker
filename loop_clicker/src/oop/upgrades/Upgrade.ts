@@ -12,7 +12,7 @@ export default class Upgrade {
         protected iterationIncrease: number; //the amount the iteraction increases with each level, this increases with each level.
         protected iterationMult: number; //the amount the iteration increase multiplies with each level.
         protected costMult: number; //the amount the cost cost increase multiplies with each level.
-        protected state : {name: string; cost: number; iterationAmount: number; count: number};
+        protected state : {name: string; cost: number; iterationAmount: number; count: number; canAfford: boolean};
         private listeners: Listener[] = [];
 
         constructor (score: Score) {
@@ -21,7 +21,7 @@ export default class Upgrade {
             this.iterationMult = 0;
             this.costIncrease = 0;
             this.costMult = 0;
-            this.state = {name: "scissors", cost: 0, iterationAmount: 0, count: 0};
+            this.state = {name: "scissors", cost: 0, iterationAmount: 0, count: 0, canAfford: false};
         }
 
         public getState() {
@@ -32,8 +32,10 @@ export default class Upgrade {
         if (this.score.isAfford(this.state.cost)) {
             this.score.subtractScore(this.state.cost);
             this.iterationIncrease *= this.iterationMult;
-            this.state = {name: this.state.name, cost: this.state.cost * this.costMult,
-                iterationAmount: this.state.iterationAmount + this.iterationIncrease, count: this.state.count + 1};
+            let cost = this.state.cost * this.costMult
+            this.state = {name: this.state.name, cost: cost,
+                iterationAmount: this.state.iterationAmount + this.iterationIncrease, count: this.state.count + 1,
+            canAfford: this.score.isAfford(cost)};
             this.score.addIncrementAmount(this.state.iterationAmount);
             this.notify();
         };
