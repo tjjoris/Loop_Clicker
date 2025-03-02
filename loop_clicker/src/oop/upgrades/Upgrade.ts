@@ -24,6 +24,10 @@ export default class Upgrade {
             this.state = {name: "scissors", cost: 0, iterationAmount: 0, count: 0};
         }
 
+        public getState() {
+            return this.state;
+        }
+
     public incrementLevel() {
         this.costIncrease *= this.costMult;
         this.iterationIncrease *= this.iterationMult;
