@@ -8,8 +8,12 @@ import LoopHandler from './oop/loop/LoopHandler'
 import { useLoopHandlerStore } from './oop/loop/UseLoopHandlerStore'
 import Loop from './oop/loop/Loop'
 import { useRef } from 'react'
+import Upgrades from './oop/upgrades/Upgrades'
+import UpgradesComponent from './components/UpgradesComponent'
 
 function App() {
+  const upgradesRef = useRef(new Upgrades());
+  const upgrades = upgradesRef.current;
   const loopHandlerRef = useRef(new LoopHandler());
   const loopHandler = loopHandlerRef.current;
   const scoreObjectRef = useRef(new Score(loopHandler));
@@ -40,6 +44,7 @@ function App() {
       <p className="read-the-docs">
         {}
       </p>
+      <UpgradesComponent upgrades={upgrades}/>
     </div>
   )
 }
