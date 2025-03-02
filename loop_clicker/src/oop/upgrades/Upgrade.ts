@@ -1,44 +1,46 @@
 import Score from "../game/Score";
+/**
+ * this class increases the score iterator, it also keeps track of the amnount to iterate the score iterator, and 
+ * the cost of the upgrade which also increases. it has a state which the UpgradeComponent.tsx is subscribed to.
+ */
+
+type Listener = () => void;
 
 export default class Upgrade {
         protected score: Score
-        protected name: string; //the name of the upgrade
-        protected info: string; //info on the upgrade
-        protected iterationAmount: number; //the current iteration amount, increases with each upgrade by iteraton by initialIteration
-        protected cost: number; //the current cost of the upgrade
-        protected count: number; //the count of this upgrade purchased
         protected costIncrease: number; //the amount the cost increases, this increases with each level.
         protected iterationIncrease: number; //the amount the iteraction increases with each level, this increases with each level.
         protected iterationMult: number; //the amount the iteration increase multiplies with each level.
         protected costMult: number; //the amount the cost cost increase multiplies with each level.
+        protected state : {name: string; cost: number; iterationAmount: number; count: number};
+        private listeners: Listener[] = [];
 
         constructor (score: Score) {
             this.score = score;
-            this.name = "placeholder name";
-            this.info = "placholder info";
-            this.count = 0;
             this.iterationIncrease = 0;
             this.iterationMult = 0;
-            this.iterationAmount = 0;
             this.costIncrease = 0;
             this.costMult = 0;
-            this.cost = 0;
+            this.state = {name: "scissors", cost: 0, iterationAmount: 0, count: 0};
         }
-    public getName() {
-        return this.name;
-    }
-
-    public getInfo() {
-        return this.info;
-    }
 
     public incrementLevel() {
-        this.count ++;
         this.costIncrease *= this.costMult;
-        this.cost += this.costIncrease;
         this.iterationIncrease *= this.iterationMult;
-        this.iterationAmount += this.iterationIncrease;
-        this.info = " level: " + this.count + " cost: " + this.cost + " amount: " + this.iterationAmount;
-        this.score.addIncrementAmount(this.iterationAmount);
+        this.state = {name: this.state.name, cost: this.state.cost + this.costIncrease,
+             iterationAmount: this.state.iterationAmount + this.iterationIncrease, count: this.state.count + 1};
+        this.score.addIncrementAmount(this.state.iterationAmount);
+        this.notify();
+    }
+
+    public subscribe(listener: Listener) { 
+        this.listeners.push(listener);
+            return () => {
+                this.listeners = this.listeners.filter((l) => l !== listener);
+            }
+    }
+
+    private notify() {
+        this.listeners.forEach((listener) => listener());
     }
 }
