@@ -1,18 +1,20 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+//App.tsx
 import './App.css'
-import Loop from './components/Loop'
+import LoopComponent from './components/Loop'
 import LoopBunch from './components/LoopBunch'
 import ScoreComponent from './components/ScoreComponent'
 import Score from './oop/game/Score'
 import LoopHandler from './oop/loop/LoopHandler'
+import { useLoopHandlerStore } from './oop/loop/UseLoopHandlerStore'
+import Loop from './oop/loop/Loop'
+import { useRef } from 'react'
 
 function App() {
-  const [count, setCount] = useState(0);
-  const loopHandler = new LoopHandler();
+  const loopHandlerRef = useRef(new LoopHandler());
+  const loopHandler = loopHandlerRef.current;
   const scoreObject = new Score(loopHandler);
-
+  const loopHandlerState: Loop | null = useLoopHandlerStore(loopHandler);
+  console.log("loop handler state " + loopHandlerState);
   return (
     <div
       onClick={() => {scoreObject.incrementScore(1);}}
@@ -24,8 +26,8 @@ function App() {
       }}
       >
       <ScoreComponent scoreObject = {scoreObject}/>
-      <Loop/>
       <LoopBunch/>
+      {loopHandlerState && <LoopComponent/>}
       <div>
       </div>
       <h1>Vite + React</h1>
@@ -35,7 +37,7 @@ function App() {
         </p>
       </div>
       <p className="read-the-docs">
-        This project includes clicking to increase score.
+        {}
       </p>
     </div>
   )

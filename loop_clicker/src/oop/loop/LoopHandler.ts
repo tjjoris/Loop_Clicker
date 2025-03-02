@@ -3,20 +3,21 @@
  */
 
 import Loop from "./Loop";
-import Elastic from "./Elastic";
+// import Elastic from "./Elastic";
 import LargeHadronCollider from "./LargeHadronCollider";
 
 type Listener = () => void;
 
 export default class LoopHandler {
-    private loop: Loop | null;
+    private loop: Loop | null = null;
     private listeners : Listener[] = [];
 
     constructor () {
-        this.loop = new Elastic();
+        // this.loop = new Elastic();
     }
 
     public doChangeLoop(score: number) {
+        console.log("loop " + this.loop);
         if (score >= 10) {
             this.loop = new LargeHadronCollider();
             this.notify();
