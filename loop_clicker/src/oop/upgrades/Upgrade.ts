@@ -29,12 +29,14 @@ export default class Upgrade {
         }
 
     public incrementLevel() {
-        // this.costIncrease *= this.costMult;
-        this.iterationIncrease *= this.iterationMult;
-        this.state = {name: this.state.name, cost: this.state.cost * this.costMult,
-             iterationAmount: this.state.iterationAmount + this.iterationIncrease, count: this.state.count + 1};
-        this.score.addIncrementAmount(this.state.iterationAmount);
-        this.notify();
+        if (this.score.isAfford(this.state.cost)) {
+            this.score.subtractScore(this.state.cost);
+            this.iterationIncrease *= this.iterationMult;
+            this.state = {name: this.state.name, cost: this.state.cost * this.costMult,
+                iterationAmount: this.state.iterationAmount + this.iterationIncrease, count: this.state.count + 1};
+            this.score.addIncrementAmount(this.state.iterationAmount);
+            this.notify();
+        };
     }
 
     public subscribe(listener: Listener) { 

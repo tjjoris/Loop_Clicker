@@ -49,6 +49,17 @@ export default class Score {
         } , rate);
     }
 
+    public isAfford(amount: number): boolean {
+        if (amount <= this.score) {
+            return true;
+        }
+        return false;
+    }
+
+    public subtractScore(amount:number) {
+        this.score -= amount;
+    }
+
     private increment() {
         this.score += this.incrementAmount;
         this.notify();
