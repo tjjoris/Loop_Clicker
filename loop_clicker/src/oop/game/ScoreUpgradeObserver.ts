@@ -1,4 +1,3 @@
-import Score from "./Score";
 import Upgrade from "../upgrades/Upgrade";
 
 export default class ScoreUpgradeObserver {

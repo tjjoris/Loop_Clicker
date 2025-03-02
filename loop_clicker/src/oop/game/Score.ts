@@ -67,6 +67,7 @@ export default class Score {
 
     private increment() {
         this.score += this.incrementAmount;
+        this.scoreUpgradeObserver.noitify();
         this.notify();
     }
 
