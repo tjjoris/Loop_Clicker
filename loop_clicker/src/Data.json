@@ -4,9 +4,16 @@
         "value": [
             {
                 "name": "Super Scissors",
-                "cost": 100,
+                "cost": 10,
                 "incrementAmount": 0.01,
                 "iterationIncrease": 0.005,
+                "costMult": 1.1
+            },
+            {
+                "name": "Hungry Cop",
+                "cost": 50,
+                "incrementAmount": 0.05,
+                "iterationIncrease": 0.025,
                 "costMult": 1.1
             }
         ]
