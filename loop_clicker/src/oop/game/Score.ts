@@ -1,4 +1,5 @@
 /**
+ * Score.ts
  * game class stores overall score.
  */
 
@@ -14,11 +15,14 @@ export default class Score {
     private listeners: Listener[] = []; //listeners subscribed to.
     private loopHandler : LoopHandler;
     private scoreUpgradeObserver: ScoreUpgradeObserver;
+    private intervalId: number | null = null;
+    private animationFrameId: number | null = null;
 
     constructor(loopHandler: LoopHandler, scoreUpgradeObserver: ScoreUpgradeObserver) {
         this.loopHandler = loopHandler;
         this.scoreUpgradeObserver = scoreUpgradeObserver;
-        this.startInterval(1000/30);
+        // this.startInterval(1000/30);
+        this.startAnimationLoop();
     }
 
     /**
@@ -52,8 +56,19 @@ export default class Score {
         this.notify();
     }
 
+    private startAnimationLoop() {
+        const loop = () => {
+            this.incrementScore(this.state.incrementAmount);
+            this.animationFrameId = window.requestAnimationFrame(loop);
+        };
+        this.animationFrameId = window.requestAnimationFrame(loop);
+    }
+
     private startInterval(rate: number) {
-        setInterval(() => {
+        if (this.intervalId != null) {
+            clearInterval(this.intervalId);
+        }
+        this.intervalId = window.setInterval(() => {
             this.incrementScore(this.state.incrementAmount);
         } , rate);
     }

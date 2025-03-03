@@ -7,12 +7,12 @@ import Upgrade from "../oop/upgrades/Upgrade";
 
 export default function UpgradeComponent({upgrade}: {upgrade: Upgrade}) {
     const state = useUpgradeStore(upgrade);
-    let name: string = state.name;
-    let count: number = state.count;
-    let iterationAmount: number = state.iterationAmount;
-    let iterationAmountStr: string = iterationAmount.toFixed(2);
-    let cost: number = state.cost;
-    let costStr: string = cost.toFixed(2);
+    const name: string = state.name;
+    const count: number = state.count;
+    const iterationAmount: number = state.iterationAmount;
+    const iterationAmountStr: string = iterationAmount.toFixed(2);
+    const cost: number = state.cost;
+    const costStr: string = cost.toFixed(2);
     let backgColour: string = "grey"
     if (state.canAfford) {
         backgColour= "#1a1a1a"
