@@ -50,7 +50,7 @@ export default class Score {
 
     private startInterval(rate: number) {
         setInterval(() => {
-            this.increment();
+            this.incrementScore(this.incrementAmount);
         } , rate);
     }
 
@@ -63,12 +63,6 @@ export default class Score {
 
     public subtractScore(amount:number) {
         this.score -= amount;
-    }
-
-    private increment() {
-        this.score += this.incrementAmount;
-        this.scoreUpgradeObserver.noitify();
-        this.notify();
     }
 
     private notify() {
