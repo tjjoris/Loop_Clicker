@@ -23,11 +23,12 @@ export default class Upgrades {
  */
     constructor(score: Score, scoreUpgradeObserver: ScoreUpgradeObserver,
          upgradesData:{name: string; cost: number; incrementAmount: number; iterationIncrease: number; costMult: number}[] ) {
-        upgradesData.forEach((upgradeData, index) => {
-            this.state[index] = new BasicRepeatableUpgrade(score, upgradesData[index]);
-        })
         this.scoreUpgradeObserver = scoreUpgradeObserver;
-        this.scoreUpgradeObserver.subscribe(this.state[0]);
+        upgradesData.forEach((upgradeData, index) => {
+            this.state[index] = new BasicRepeatableUpgrade(score, upgradesData[index]);            
+
+            this.scoreUpgradeObserver.subscribe(this.state[index]);
+        })
         this.notify();
         this.upgradesData = upgradesData;
     }
