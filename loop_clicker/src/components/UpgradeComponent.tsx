@@ -23,7 +23,8 @@ export default function UpgradeComponent({upgrade}: {upgrade: Upgrade}) {
             <button 
                 onClick={() => {upgrade.incrementLevel();}}
                 style={{
-                    backgroundColor: backgColour
+                    backgroundColor: backgColour,
+                    padding: "10px"
                 }}
             >
                 <p>

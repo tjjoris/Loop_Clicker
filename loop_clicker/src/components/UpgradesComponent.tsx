@@ -12,7 +12,9 @@ export default function UpgradesComponent({upgrades}: {upgrades: Upgrades}) {
             style={{
                 position:"absolute",
                 left: `${x}px`,
-                top:`${y}px`
+                top:`${y}px`,
+                display: "flex",
+                flexDirection: "column"
             }}
         >
             {state.map((upgrade, index) => {
