@@ -23,7 +23,9 @@ export default class Upgrades {
  */
     constructor(score: Score, scoreUpgradeObserver: ScoreUpgradeObserver,
          upgradesData:{name: string; cost: number; incrementAmount: number; iterationIncrease: number; costMult: number}[] ) {
-        this.state[0] = new BasicRepeatableUpgrade(score, upgradesData[0]);
+        upgradesData.forEach((upgradeData, index) => {
+            this.state[index] = new BasicRepeatableUpgrade(score, upgradesData[index]);
+        })
         this.scoreUpgradeObserver = scoreUpgradeObserver;
         this.scoreUpgradeObserver.subscribe(this.state[0]);
         this.notify();
