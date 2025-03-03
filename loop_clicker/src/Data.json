@@ -1,0 +1,14 @@
+[
+    {   
+        "key" : "repeatable_upgrades",
+        "value": [
+            {
+                "name": "Scissors",
+                "cost": 100,
+                "incrementAmount": 0.01,
+                "iterationIncrease": 0.005,
+                "costMult": 1.1
+            }
+        ]
+    }
+]
