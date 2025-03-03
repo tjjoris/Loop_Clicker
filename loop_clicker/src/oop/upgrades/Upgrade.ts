@@ -15,7 +15,7 @@ export default class Upgrade {
         protected state : {name: string; cost: number; iterationAmount: number; count: number; canAfford: boolean};
         private listeners: Listener[] = [];
 
-        constructor (score: Score) {
+        constructor (score: Score, upgradesData: {name: string; cost: number; incrementAmount: number; iterationIncrease: number; costMult: number}) {
             this.score = score;
             this.iterationIncrease = 0;
             this.iterationMult = 0;

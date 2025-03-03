@@ -11,14 +11,17 @@ import { useRef } from 'react'
 import Upgrades from './oop/upgrades/Upgrades'
 import UpgradesComponent from './components/UpgradesComponent'
 import ScoreUpgradeObserver from './oop/game/ScoreUpgradeObserver'
+import Data from './Data.json'
 
 function App() {
+  const dataRef = useRef(Data);
+  const data = dataRef.current;
   const loopHandlerRef = useRef(new LoopHandler());
   const loopHandler = loopHandlerRef.current;
   const scoreUpgradeObserver = useRef(new ScoreUpgradeObserver());
   const scoreObjectRef = useRef(new Score(loopHandler, scoreUpgradeObserver.current));
   const scoreObject = scoreObjectRef.current;
-  const upgradesRef = useRef(new Upgrades(scoreObject, scoreUpgradeObserver.current));
+  const upgradesRef = useRef(new Upgrades(scoreObject, scoreUpgradeObserver.current, data[0].value));
   const upgrades = upgradesRef.current;
   const loopHandlerState: Loop | null = useLoopHandlerStore(loopHandler);
   return (

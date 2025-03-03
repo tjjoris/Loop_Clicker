@@ -3,7 +3,7 @@
         "key" : "repeatable_upgrades",
         "value": [
             {
-                "name": "Scissors",
+                "name": "Super Scissors",
                 "cost": 100,
                 "incrementAmount": 0.01,
                 "iterationIncrease": 0.005,

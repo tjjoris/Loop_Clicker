@@ -1,0 +1,15 @@
+import Upgrade from "./Upgrade";
+import Score from "../game/Score";
+
+export default class BasicRepeatableUpgrade extends Upgrade {
+
+    constructor(score: Score, upgradesData: 
+        {name: string; cost: number; incrementAmount: number; iterationIncrease: number; costMult: number}) {
+        super(score, upgradesData);
+        this.state = {name: upgradesData.name, cost: upgradesData.cost, iterationAmount: upgradesData.incrementAmount, count: 0, canAfford: false}  ;
+        // this.costIncrease = 1;
+        this.iterationIncrease = 0.005;
+        this.costMult = 1.1;
+        this.iterationMult = 1;  
+    }
+}

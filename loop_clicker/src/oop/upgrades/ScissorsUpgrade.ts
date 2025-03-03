@@ -3,8 +3,8 @@ import Score from "../game/Score";
 
 export default class ScissorsUpgrade extends Upgrade {
 
-    constructor(score: Score) {
-        super(score);
+    constructor(score: Score,  upgradesData: {name: string; cost: number; incrementAmount: number; iterationIncrease: number; costMult: number}) {
+        super(score,  upgradesData);
         this.state = {name: "scissors", cost: 10, iterationAmount: 0, count: 0, canAfford: false}  ;
         // this.costIncrease = 1;
         this.iterationIncrease = 0.005;

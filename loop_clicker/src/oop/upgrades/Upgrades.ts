@@ -2,6 +2,7 @@ import Upgrade from "./Upgrade";
 import ScissorsUpgrade from "./ScissorsUpgrade";
 import Score from "../game/Score";
 import ScoreUpgradeObserver from "../game/ScoreUpgradeObserver";
+import BasicRepeatableUpgrade from "./BasicRepeatableUpgrade";
 /**
  * this class tracks upgrades and if they are visible, thier sprite, and their text
  */
@@ -12,13 +13,21 @@ export default class Upgrades {
     private state : Upgrade[] = []
     private listeners : Listener[] = [];
     private scoreUpgradeObserver: ScoreUpgradeObserver;
+    private upgradesData: {name: string; cost: number; incrementAmount: number; iterationIncrease: number; costMult: number}[]
 
-    constructor(score: Score, scoreUpgradeObserver: ScoreUpgradeObserver) {
-        this.state[0] = new ScissorsUpgrade(score);
+/**
+ * 
+ * @param score 
+ * @param scoreUpgradeObserver 
+ * @param upgradesData the object taken from data.json containing all upgrades.
+ */
+    constructor(score: Score, scoreUpgradeObserver: ScoreUpgradeObserver,
+         upgradesData:{name: string; cost: number; incrementAmount: number; iterationIncrease: number; costMult: number}[] ) {
+        this.state[0] = new BasicRepeatableUpgrade(score, upgradesData[0]);
         this.scoreUpgradeObserver = scoreUpgradeObserver;
         this.scoreUpgradeObserver.subscribe(this.state[0]);
         this.notify();
-
+        this.upgradesData = upgradesData;
     }
 
     public getState() {
