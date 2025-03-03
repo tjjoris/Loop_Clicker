@@ -10,10 +10,9 @@ import LoopHandler from "../loop/LoopHandler";
 type Listener = () => void;
 
 export default class Score {
-    private score: number = 0;  //score
+    private state: {score: number; incrementAmount: number; counter: number} = {score: 0, incrementAmount: 0, counter: 0};  //score
     private listeners: Listener[] = []; //listeners subscribed to.
     private loopHandler : LoopHandler;
-    private incrementAmount: number = 0;
     private scoreUpgradeObserver: ScoreUpgradeObserver;
 
     constructor(loopHandler: LoopHandler, scoreUpgradeObserver: ScoreUpgradeObserver) {
@@ -27,14 +26,18 @@ export default class Score {
      * @param amount 
      */
     public incrementScore(amount: number) {
-        this.score += amount;
-        this.loopHandler.doChangeLoop(this.score);
+        this.state = {score: this.state.score + amount, incrementAmount: this.state.incrementAmount, counter: this.state.counter + 1}
+        if (this.state.counter > 30) {
+            this.state = {score: this.state.score, incrementAmount: this.state.incrementAmount, counter: 0};
+        }
+        this.loopHandler.doChangeLoop(this.state.score);
+        console.log("incrememt by: " + this.state.incrementAmount)
         this.scoreUpgradeObserver.noitify();
         this.notify();
     }
 
     public getScore(){
-        return this.score;
+        return this.state;
     }
 
     public subscribe(listener: Listener) { 
@@ -45,24 +48,25 @@ export default class Score {
     }
 
     public addIncrementAmount (amount: number) {
-        this.incrementAmount += amount;
+        this.state = {score: this.state.score, incrementAmount: this.state.incrementAmount + amount, counter: this.state.counter};
+        this.notify();
     }
 
     private startInterval(rate: number) {
         setInterval(() => {
-            this.incrementScore(this.incrementAmount);
+            this.incrementScore(this.state.incrementAmount);
         } , rate);
     }
 
     public isAfford(amount: number): boolean {
-        if (amount <= this.score) {
+        if (amount <= this.state.score) {
             return true;
         }
         return false;
     }
 
     public subtractScore(amount:number) {
-        this.score -= amount;
+        this.state = {score: this.state.score - amount, incrementAmount: this.state.incrementAmount, counter: this.state.counter};
         this.notify();
     }
 
