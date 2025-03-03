@@ -19,12 +19,16 @@ export default function UpgradeComponent({upgrade}: {upgrade: Upgrade}) {
     }
 
     return (
-        <>
+        <div
+            style={{
+                
+                    padding: "10px"
+            }}
+        >
             <button 
                 onClick={() => {upgrade.incrementLevel();}}
                 style={{
-                    backgroundColor: backgColour,
-                    padding: "10px"
+                    backgroundColor: backgColour
                 }}
             >
                 <p>
@@ -40,6 +44,6 @@ export default function UpgradeComponent({upgrade}: {upgrade: Upgrade}) {
                     iteration amount {iterationAmountStr}
                 </p>
             </button>
-        </>
+        </div>
     )
 }

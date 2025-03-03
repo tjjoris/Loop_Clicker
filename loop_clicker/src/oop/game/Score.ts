@@ -63,6 +63,7 @@ export default class Score {
 
     public subtractScore(amount:number) {
         this.score -= amount;
+        this.notify();
     }
 
     private notify() {
