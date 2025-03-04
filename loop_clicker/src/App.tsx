@@ -1,6 +1,5 @@
 //App.tsx
 import './App.css'
-import LoopComponent from './components/Loop'
 import LoopBunchComponent from './components/LoopBunch'
 import ScoreComponent from './components/ScoreComponent'
 import Score from './oop/game/Score'
