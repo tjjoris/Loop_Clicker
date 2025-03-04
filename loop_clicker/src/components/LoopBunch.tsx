@@ -13,6 +13,7 @@ export default function LoopBunchComponent({score, loopBunch}:{score: Score, loo
     let top : number = 100;
     let width: number = 100;
     let height: number = 100;
+    const incrementAmount = score.getScore().incrementAmount;
     
     console.log("loop bunch re-rendered");
     // const clickToAddLoop = ((event: React.MouseEvent) => {
@@ -48,7 +49,7 @@ export default function LoopBunchComponent({score, loopBunch}:{score: Score, loo
             {
                 state.map((clickedLoop, index) => {
                     return (
-                        <LoopComponent key={index} x={clickedLoop.getX()} loop = {clickedLoop}/>
+                        <LoopComponent key={index} x={clickedLoop.getX()} loop = {clickedLoop} incrementAmount = {incrementAmount}/>
                     )
                 })
             }
