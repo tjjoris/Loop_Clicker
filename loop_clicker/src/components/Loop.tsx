@@ -2,13 +2,13 @@ import elastic_placeholder from "/assets/elastic_placeholder.png"
 import { useLoopStore } from "../oop/loop/useLoopStore";
 import Loop from "../oop/loop/Loop";
 
-export default function LoopComponent ({x, loop, incrementAmount}: {x: number, loop: Loop, incrementAmount: number}) {
+export default function LoopComponent ({x, loop, incrementAmount: amountPerClick}: {x: number, loop: Loop, incrementAmount: number}) {
     const left: number = x;
     let width: number = 30;
     let height: number = 30;
     const top: number = useLoopStore(loop);
-    let incrementAmountPerClick: number = (incrementAmount * 30) + 1;
-    let incrementAmountStr: string = incrementAmountPerClick.toFixed(2);
+    // let incrementAmountPerClick: number = (incrementAmount * 30) + 1;
+    let incrementAmountStr: string = amountPerClick.toFixed(2);
 
     return (
         <>
