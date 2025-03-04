@@ -18,7 +18,8 @@ export default function LoopComponent ({x, loop}: {x: number, loop: Loop}) {
                 top: `${top}px`,
                 position: "absolute",
                 width: `${width}px`,
-                height: `${height}px`
+                height: `${height}px`,
+                pointerEvents: "none"
             }}
             />
         </>

@@ -29,7 +29,7 @@ export default class Loop {
     }
 
     private incrementY(amount: number) {
-        // this.y += amount;
+        this.y += amount;
         this.notify();
     }
 
