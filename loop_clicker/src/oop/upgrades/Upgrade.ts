@@ -10,16 +10,14 @@ export default class Upgrade {
         protected score: Score
         protected costIncrease: number; //the amount the cost increases, this increases with each level.
         protected iterationIncrease: number; //the amount the iteraction increases with each level, this increases with each level.
-        protected iterationMult: number; //the amount the iteration increase multiplies with each level.
         protected costMult: number; //the amount the cost cost increase multiplies with each level.
         protected state : {name: string; cost: number; iterationAmount: number; count: number; canAfford: boolean};
         private listeners: Listener[] = [];
         private isAfford : boolean = false;
 
-        constructor (score: Score, upgradesData: {name: string; cost: number; incrementAmount: number; iterationIncrease: number; costMult: number}) {
+        constructor (score: Score, upgradesData: {name: string; cost: number; incrementAmount: number; costMult: number}) {
             this.score = score;
             this.iterationIncrease = 0;
-            this.iterationMult = 0;
             this.costIncrease = 0;
             this.costMult = 0;
             this.state = {name: "scissors", cost: 0, iterationAmount: 0, count: 0, canAfford: false};
