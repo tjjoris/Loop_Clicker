@@ -6,7 +6,7 @@ export default function ScoreComponent({scoreObject}: {scoreObject: Score}) {
     const state: {score: number; incrementAmount: number; counter: number} = useScoreStore(scoreObject);
     const score: number = state.score;
     const incrementAmount: number = state.incrementAmount;
-    const clicksPerSecond: number = (incrementAmount * 30);
+    const clicksPerSecond: number = (incrementAmount);
     const clicksPerSecondStr: string = clicksPerSecond.toFixed(2);
     let scoreDisplay: number = Math.floor(score);
     let decimalIndicator: string = ""
