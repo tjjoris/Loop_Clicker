@@ -1,4 +1,5 @@
-import elastic_ball_placeholder from "/assets/elastic_ball_placeholder.png";
+// import elastic_ball_placeholder from "/assets/elastic_ball_placeholder.png";
+import elastic_ball_image from "/assets/Elastic_Ball_lite2.png";
 import Score from "../oop/game/Score";
 import LoopComponent from "./Loop";
 import LoopBunch from "../oop/loop/LoopBunch";
@@ -11,8 +12,8 @@ export default function LoopBunchComponent({score, loopBunch}:{score: Score, loo
     const scoreObject = score;
     let left : number = 100;
     let top : number = 100;
-    let width: number = 100;
-    let height: number = 100;
+    let width: number = 200;
+    let height: number = 200;
     const amountPerClick = score.getAmountPerClick();
     
     console.log("loop bunch re-rendered");
@@ -35,7 +36,7 @@ export default function LoopBunchComponent({score, loopBunch}:{score: Score, loo
     return (
         <>
             <img
-            src={elastic_ball_placeholder}
+            src={elastic_ball_image}
             draggable="false"
             onClick={clickEvent}
             style={{

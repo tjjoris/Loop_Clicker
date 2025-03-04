@@ -13,6 +13,7 @@ export default function LoopComponent ({x, loop, incrementAmount: amountPerClick
     return (
         <>
             <div
+                className="loop"
                 style={{
                     left: `${left}px`,
                     top: `${top}px`,
@@ -35,7 +36,7 @@ export default function LoopComponent ({x, loop, incrementAmount: amountPerClick
                 />
                     <p
                         style={{
-                            color: "black"
+                            // color: "black"
                         }}
                     >
                         {incrementAmountStr}
