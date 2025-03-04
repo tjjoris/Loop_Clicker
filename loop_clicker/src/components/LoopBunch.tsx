@@ -1,6 +1,5 @@
 import elastic_ball_placeholder from "/assets/elastic_ball_placeholder.png";
 import Score from "../oop/game/Score";
-import React, { useState } from "react";
 import LoopComponent from "./Loop";
 import LoopBunch from "../oop/loop/LoopBunch";
 import { useLoopBunchStore } from "../oop/loop/useLoopBunchStore";
@@ -15,7 +14,7 @@ export default function LoopBunchComponent({score, loopBunch}:{score: Score, loo
     let width: number = 100;
     let height: number = 100;
     
-
+    console.log("loop bunch re-rendered");
     // const clickToAddLoop = ((event: React.MouseEvent) => {
     //     console.log("clicked in loop");
     //     scoreObject.incrementScore(1);
@@ -47,12 +46,17 @@ export default function LoopBunchComponent({score, loopBunch}:{score: Score, loo
             }}
             />
             {
-                state.map((clickedLoop) => {
+                state.map((clickedLoop, index) => {
                     return (
-                        <LoopComponent x={clickedLoop.getX()} y={clickedLoop.getY()}/>
+                        <LoopComponent key={index} x={clickedLoop.getX()} loop = {clickedLoop}/>
                     )
                 })
             }
+            
+            <p 
+            style={{color: "black"}}>
+                {state.length}
+            </p>
         </>
     )
 }

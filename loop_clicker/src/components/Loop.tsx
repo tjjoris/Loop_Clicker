@@ -1,18 +1,13 @@
 import elastic_placeholder from "/assets/elastic_placeholder.png"
-import { useState, useEffect } from "react";
+import { useLoopStore } from "../oop/loop/useLoopStore";
+import Loop from "../oop/loop/Loop";
 
-export default function LoopComponent ({x, y}: {x: number, y: number}) {
+export default function LoopComponent ({x, loop}: {x: number, loop: Loop}) {
     const left: number = x;
     let width: number = 30;
     let height: number = 30;
-    const [currentY, setCurrentY] = useState(y);
+    const top: number = useLoopStore(loop);
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setCurrentY((prevY) => prevY - 1); //move up 1 pixel
-        }, 30);
-        return () => clearInterval(interval); //cleanup on unmount
-    }, []);
     return (
         <>
             <img 
@@ -20,7 +15,7 @@ export default function LoopComponent ({x, y}: {x: number, y: number}) {
             draggable="false"
             style={{
                 left: `${left}px`,
-                top: `${currentY}px`,
+                top: `${top}px`,
                 position: "absolute",
                 width: `${width}px`,
                 height: `${height}px`

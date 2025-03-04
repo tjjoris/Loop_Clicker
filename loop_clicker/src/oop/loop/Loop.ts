@@ -2,10 +2,12 @@
  *the loop object, is displayed whenever the user clicks the loop bunch.
  */
 
+ type Listener = () => void;
 export default class Loop {
     // protected state: { isEnabled: boolean; x: number; y: number; width: number; height: number; spriteName: string};
     private x: number;
     private y: number;
+    private listners: Listener[] = [];
 
     constructor(x: number, y: number) {
         this.x = x;
@@ -27,7 +29,8 @@ export default class Loop {
     }
 
     private incrementY(amount: number) {
-        this.y += amount;
+        // this.y += amount;
+        this.notify();
     }
 
     public getX() {
@@ -36,5 +39,16 @@ export default class Loop {
 
     public getY() {
         return this.y;
+    }
+
+    public subscribe(listner: Listener) { 
+        this.listners.push(listner);
+            return () => {
+                this.listners = this.listners.filter((l) => l !== listner);
+            }
+    }   
+
+    private notify() {
+        this.listners.forEach((listener) => listener());
     }
 }
