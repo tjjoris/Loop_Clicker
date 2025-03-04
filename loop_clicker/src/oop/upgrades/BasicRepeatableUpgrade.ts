@@ -8,7 +8,7 @@ export default class BasicRepeatableUpgrade extends Upgrade {
         super(score, upgradesData);
         this.state = {name: upgradesData.name, cost: upgradesData.cost, iterationAmount: upgradesData.incrementAmount, count: 0, canAfford: false}  ;
         // this.costIncrease = 1;
-        this.iterationIncrease = 0.005;
+        this.iterationIncrease = upgradesData.incrementAmount;
         this.costMult = 1.1;
         this.iterationMult = 1;  
     }

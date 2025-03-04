@@ -31,7 +31,6 @@ export default class Upgrade {
     public incrementLevel() {
         if (this.score.isAfford(this.state.cost)) {
             this.score.subtractScore(this.state.cost);
-            this.iterationIncrease *= this.iterationMult;
             let cost = this.state.cost * this.costMult
             this.state = {name: this.state.name, cost: cost,
                 iterationAmount: this.state.iterationAmount + this.iterationIncrease, count: this.state.count + 1,
