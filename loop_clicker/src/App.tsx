@@ -31,8 +31,9 @@ function App() {
   console.log("app render");
 
   let reactive : string = "desktop";
-  if (window.innerWidth < 400) {
+  if (window.innerWidth < 600) {
     reactive = "mobile";
+    console.log("mobile");
   }
   useEffect(() => {
     console.log("loopHandlerState changed:", loopHandlerState);
@@ -46,26 +47,16 @@ function App() {
       <div
         className= {`loopsAndUpgrades ${reactive}`}
         >
-        <div
-          className = "mainBoard"
-          // onClick={() => {scoreObject.incrementScore(1);}}
-          style={{
-            userSelect: "none",
-            // width: "100px",
-            // height: "100px",
-            backgroundColor: "#242424"
-          }}
+          <div
+            className = {'loopBunchColumn'}
+          >           
+            <LoopBunchComponent score={scoreObject} loopBunch={loopBunch}/>
+          </div>
+          <div
+            className={'upgradesColumn'}
           >
-          <LoopBunchComponent score={scoreObject} loopBunch={loopBunch}/>
-          {/* <LoopComponent/> */}
-        </div>
-        <div>
-          
-          <p className="read-the-docs">
-            {}
-          </p>
-          <UpgradesComponent upgrades={upgrades}/>
-        </div>
+            <UpgradesComponent upgrades={upgrades}/>
+          </div>
         </div>
     </div>
   )

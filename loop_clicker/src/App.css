@@ -18,11 +18,24 @@
 }
 
 .loopsAndUpgrades.desktop {
+  display: flex;
+  position: relative;
   flex-direction: row;
 }
 
 .loopsAndUpgrades.mobile {
+  display: flex;
+  position: relative;
   flex-direction: column;
+}
+
+.loopBunchColumn {
+  width: 400px;
+  height: 300px;
+}
+
+.upgradesColumn {
+  position: relative;
 }
 
 div {
