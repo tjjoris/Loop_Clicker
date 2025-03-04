@@ -44,25 +44,29 @@ function App() {
     >
       <ScoreComponent scoreObject = {scoreObject}/>
       <div
-        className = "mainBoard"
-        // onClick={() => {scoreObject.incrementScore(1);}}
-        style={{
-          userSelect: "none",
-          width: "100px",
-          height: "100px",
-          backgroundColor: "#242424"
-        }}
+        className= {`loopsAndUpgrades ${reactive}`}
         >
-        <LoopBunchComponent score={scoreObject} loopBunch={loopBunch}/>
-        {/* <LoopComponent/> */}
-      </div>
-      <div>
-        
-        <p className="read-the-docs">
-          {}
-        </p>
-        <UpgradesComponent upgrades={upgrades}/>
-      </div>
+        <div
+          className = "mainBoard"
+          // onClick={() => {scoreObject.incrementScore(1);}}
+          style={{
+            userSelect: "none",
+            // width: "100px",
+            // height: "100px",
+            backgroundColor: "#242424"
+          }}
+          >
+          <LoopBunchComponent score={scoreObject} loopBunch={loopBunch}/>
+          {/* <LoopComponent/> */}
+        </div>
+        <div>
+          
+          <p className="read-the-docs">
+            {}
+          </p>
+          <UpgradesComponent upgrades={upgrades}/>
+        </div>
+        </div>
     </div>
   )
 }
