@@ -12,6 +12,7 @@ import Upgrades from './oop/upgrades/Upgrades'
 import UpgradesComponent from './components/UpgradesComponent'
 import ScoreUpgradeObserver from './oop/game/ScoreUpgradeObserver'
 import Data from './Data.json'
+import { useEffect } from 'react'
 
 function App() {
   const dataRef = useRef(Data);
@@ -26,6 +27,10 @@ function App() {
   const upgrades = upgradesRef.current;
   const loopHandlerState: Loop | null = useLoopHandlerStore(loopHandler);
   console.log("app render");
+  useEffect(() => {
+    console.log("loopHandlerState changed:", loopHandlerState);
+  }, [loopHandlerState])
+
   return (
     <>
       <div
@@ -38,7 +43,7 @@ function App() {
         }}
         >
         <LoopBunch/>
-        {loopHandlerState && <LoopComponent/>}
+        <LoopComponent/>
       </div>
       <div>
         <ScoreComponent scoreObject = {scoreObject}/>

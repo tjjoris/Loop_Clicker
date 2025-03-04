@@ -17,10 +17,10 @@ export default class LoopHandler {
     }
 
     public doChangeLoop(score: number) {
-        if ((score >= 10) && !(this.loop instanceof LargeHadronCollider)) {
-            this.loop = new LargeHadronCollider();
-            this.notify();
-        }
+        // if ((score >= 10) && !(this.loop instanceof LargeHadronCollider)) {
+        //     this.loop = new LargeHadronCollider();
+        //     this.notify();
+        // }
     }
 
     public subscribe(listener: Listener) { 

@@ -8,16 +8,16 @@ export default function ScoreComponent({scoreObject}: {scoreObject: Score}) {
     const incrementAmount: number = state.incrementAmount;
     const clicksPerSecond: number = (incrementAmount * 30);
     const clicksPerSecondStr: string = clicksPerSecond.toFixed(2);
-    const scoreDisplay: number = Math.floor(score);
-    const decimalIndicator: string = ""
-    const scoreDisplayStr : string = scoreDisplay.toString();
+    let scoreDisplay: number = Math.floor(score);
+    let decimalIndicator: string = ""
+    let scoreDisplayStr : string = scoreDisplay.toString();
     const counter: number = state.counter;
-    // if (scoreDisplay >= 1000000) {
-    //     scoreDisplay = (scoreDisplay / 1000);
-    //     decimalIndicator = " million";
-    //     scoreDisplayStr = scoreDisplay.toFixed(2);
-    // }
-    // scoreDisplayStr = scoreDisplayStr + decimalIndicator;
+    if (scoreDisplay >= 1000000) {
+        scoreDisplay = (scoreDisplay / 1000);
+        decimalIndicator = " million";
+        scoreDisplayStr = scoreDisplay.toFixed(2);
+    }
+    scoreDisplayStr = scoreDisplayStr + decimalIndicator;
     
     return (
         <div

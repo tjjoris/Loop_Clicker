@@ -14,6 +14,7 @@ export default class Upgrade {
         protected costMult: number; //the amount the cost cost increase multiplies with each level.
         protected state : {name: string; cost: number; iterationAmount: number; count: number; canAfford: boolean};
         private listeners: Listener[] = [];
+        private isAfford : boolean = false;
 
         constructor (score: Score, upgradesData: {name: string; cost: number; incrementAmount: number; iterationIncrease: number; costMult: number}) {
             this.score = score;
@@ -30,6 +31,7 @@ export default class Upgrade {
 
     public incrementLevel() {
         if (this.score.isAfford(this.state.cost)) {
+            this.isAfford = this.score.isAfford(this.state.cost);
             this.score.subtractScore(this.state.cost);
             let cost = this.state.cost * this.costMult
             this.state = {name: this.state.name, cost: cost,
@@ -48,8 +50,16 @@ export default class Upgrade {
     }
 
     public update() {
-        this.state = {canAfford : this.score.isAfford(this.state.cost),
-             name: this.state.name, cost: this.state.cost, iterationAmount: this.state.iterationAmount, count: this.state.count}
+        console.log("update");
+        if (this.isAfford != this.score.isAfford(this.state.cost)) {
+            this.isAfford = this.score.isAfford(this.state.cost);
+            console.log("change can afford to " + this.isAfford);
+            
+        this.state = {canAfford : this.isAfford,
+            name: this.state.name, cost: this.state.cost, iterationAmount: this.state.iterationAmount, count: this.state.count}
+            console.log("can afford sate: "+ this.state.canAfford);
+            this.notify();
+        }
     }
 
     private notify() {

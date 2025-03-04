@@ -14,6 +14,7 @@ export default class ScoreUpgradeObserver {
 
     public noitify() {
         this.upgrades.forEach((upgrade) => {
+            // console.log("upgrade " + upgrade);
             upgrade.update() ;
         })
     }
