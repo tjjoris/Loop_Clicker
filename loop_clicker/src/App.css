@@ -34,6 +34,19 @@
   height: 300px;
 }
 
+.scoreAndLoopBunch {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  left: 10px;
+  top: 10px;
+}
+
+.score {
+    position: absolute
+    width: 500px
+}
+
 .upgradesColumn {
   position: relative;
 }

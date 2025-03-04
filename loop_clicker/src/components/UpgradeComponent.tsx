@@ -38,7 +38,10 @@ export default function UpgradeComponent({upgrade}: {upgrade: Upgrade}) {
                     cost: {costStr}
                 </p>
                 <p>
-                    iteration amount {iterationAmountStr}
+                    {/* iteration per level {state.getIterationPerLevel()} */}
+                </p>
+                <p>
+                    total iteration {iterationAmountStr}
                 </p>
             </button>
         </div>

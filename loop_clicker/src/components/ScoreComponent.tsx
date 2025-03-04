@@ -12,6 +12,11 @@ export default function ScoreComponent({scoreObject}: {scoreObject: Score}) {
     let decimalIndicator: string = ""
     let scoreDisplayStr : string = scoreDisplay.toString();
     const counter: number = state.counter;
+    if (scoreDisplay >= 1000000000) {
+        scoreDisplay = (scoreDisplay / 1000000);
+        decimalIndicator = "billion";
+        scoreDisplayStr = scoreDisplay.toFixed(2);
+    } else
     if (scoreDisplay >= 1000000) {
         scoreDisplay = (scoreDisplay / 1000);
         decimalIndicator = " million";
@@ -21,11 +26,7 @@ export default function ScoreComponent({scoreObject}: {scoreObject: Score}) {
     
     return (
         <div
-            style={{
-                position: "absolute",
-                // left:"300px",
-                // top:"100px"
-            }}
+            className="score"
         >
             <h2>
                 Score: {scoreDisplayStr}

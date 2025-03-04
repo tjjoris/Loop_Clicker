@@ -43,14 +43,24 @@ function App() {
     <div 
       className='mainBoard'
     >
-      <ScoreComponent scoreObject = {scoreObject}/>
       <div
         className= {`loopsAndUpgrades ${reactive}`}
         >
+            
           <div
             className = {'loopBunchColumn'}
-          >           
-            <LoopBunchComponent score={scoreObject} loopBunch={loopBunch}/>
+          >   
+            
+            <div
+            className = {'scoreAndLoopBunch'}
+            >  
+              <div>
+                <ScoreComponent scoreObject = {scoreObject}/>      
+              </div>
+              <div>
+                <LoopBunchComponent score={scoreObject} loopBunch={loopBunch}/>
+                </div>
+            </div>
           </div>
           <div
             className={'upgradesColumn'}
