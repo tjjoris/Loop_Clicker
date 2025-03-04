@@ -42,7 +42,7 @@ export default class Upgrade {
             this.state = {name: this.state.name, cost: cost,
                 iterationAmount: this.state.iterationAmount + this.iterationIncrease, count: this.state.count + 1,
             canAfford: this.score.isAfford(cost)};
-            this.score.addIncrementAmount(this.state.iterationAmount);
+            this.score.addIncrementAmount(this.iterationIncrease);
             this.notify();
         };
     }
