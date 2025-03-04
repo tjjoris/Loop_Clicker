@@ -21,8 +21,8 @@ export default class Score {
     constructor(loopHandler: LoopHandler, scoreUpgradeObserver: ScoreUpgradeObserver) {
         this.loopHandler = loopHandler;
         this.scoreUpgradeObserver = scoreUpgradeObserver;
-        // this.startInterval(1000/30);
-        this.startAnimationLoop();
+        this.startInterval(1000/30);
+        // this.startAnimationLoop();
     }
 
     /**
@@ -58,13 +58,13 @@ export default class Score {
         this.notify();
     }
 
-    private startAnimationLoop() {
-        const loop = () => {
-            this.incrementScore(this.state.incrementAmount);
-            this.animationFrameId = window.requestAnimationFrame(loop);
-        };
-        this.animationFrameId = window.requestAnimationFrame(loop);
-    }
+    // private startAnimationLoop() {
+    //     const loop = () => {
+    //         this.incrementScore(this.state.incrementAmount);
+    //         this.animationFrameId = window.requestAnimationFrame(loop);
+    //     };
+    //     this.animationFrameId = window.requestAnimationFrame(loop);
+    // }
 
     private startInterval(rate: number) {
         if (this.intervalId != null) {

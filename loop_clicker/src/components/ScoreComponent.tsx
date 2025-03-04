@@ -6,10 +6,11 @@ export default function ScoreComponent({scoreObject}: {scoreObject: Score}) {
     const state: {score: number; incrementAmount: number; counter: number} = useScoreStore(scoreObject);
     const score: number = state.score;
     const incrementAmount: number = state.incrementAmount;
-    const clicksPerSecond: number = incrementAmount * 30;
-    // const scoreDisplay: number = Math.floor(score);
-    // const decimalIndicator: string = ""
-    // const scoreDisplayStr : string = scoreDisplay.toString();
+    const clicksPerSecond: number = (incrementAmount * 30);
+    const clicksPerSecondStr: string = clicksPerSecond.toFixed(2);
+    const scoreDisplay: number = Math.floor(score);
+    const decimalIndicator: string = ""
+    const scoreDisplayStr : string = scoreDisplay.toString();
     const counter: number = state.counter;
     // if (scoreDisplay >= 1000000) {
     //     scoreDisplay = (scoreDisplay / 1000);
@@ -27,10 +28,10 @@ export default function ScoreComponent({scoreObject}: {scoreObject: Score}) {
             }}
         >
             <h1>
-                Score: {score}
+                Score: {scoreDisplayStr}
             </h1>
             <h2>
-                clicks per second: {clicksPerSecond}
+                clicks per second: {clicksPerSecondStr}
             </h2>
             <p>
                 counter: {counter}
