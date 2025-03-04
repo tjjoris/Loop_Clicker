@@ -3,6 +3,7 @@ import Score from "../oop/game/Score";
 import { useState } from "react";
 import LoopComponent from "./Loop";
 
+
 export default function LoopBunchComponent({score}:{score: Score}) {
     const [clickedLoops, setClickedLoops] = useState<{id:number; x: number; y: number}[]>([]);
     const scoreObject = score;
@@ -20,7 +21,7 @@ export default function LoopBunchComponent({score}:{score: Score}) {
         //remove after 2 seconds
         setTimeout(() => {
             setClickedLoops((prev) => prev.filter((item) => item.id !== id));
-        }, 2000);
+        }, 1000);
     })
     return (
         <>
