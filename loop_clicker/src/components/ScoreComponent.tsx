@@ -23,18 +23,18 @@ export default function ScoreComponent({scoreObject}: {scoreObject: Score}) {
         <div
             style={{
                 position: "absolute",
-                left:"300px",
-                top:"100px"
+                // left:"300px",
+                // top:"100px"
             }}
         >
-            <h1>
-                Score: {scoreDisplayStr}
-            </h1>
             <h2>
-                clicks per second: {clicksPerSecondStr}
+                Score: {scoreDisplayStr}
             </h2>
+            <h3>
+                clicks per second: {clicksPerSecondStr}
+            </h3>
             <p>
-                counter: {counter}
+                {/* counter: {counter} */}
             </p>
         </div>
     )

@@ -29,13 +29,22 @@ function App() {
   const upgrades = upgradesRef.current;
   const loopHandlerState: Loop | null = useLoopHandlerStore(loopHandler);
   console.log("app render");
+
+  let reactive : string = "desktop";
+  if (window.innerWidth < 400) {
+    reactive = "mobile";
+  }
   useEffect(() => {
     console.log("loopHandlerState changed:", loopHandlerState);
   }, [loopHandlerState])
 
   return (
-    <>
+    <div 
+      className='mainBoard'
+    >
+      <ScoreComponent scoreObject = {scoreObject}/>
       <div
+        className = "mainBoard"
         // onClick={() => {scoreObject.incrementScore(1);}}
         style={{
           userSelect: "none",
@@ -48,13 +57,13 @@ function App() {
         {/* <LoopComponent/> */}
       </div>
       <div>
-        <ScoreComponent scoreObject = {scoreObject}/>
+        
         <p className="read-the-docs">
           {}
         </p>
         <UpgradesComponent upgrades={upgrades}/>
       </div>
-    </>
+    </div>
   )
 }
 

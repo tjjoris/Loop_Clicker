@@ -20,10 +20,7 @@ export default function UpgradeComponent({upgrade}: {upgrade: Upgrade}) {
 
     return (
         <div
-            style={{
-                
-                    padding: "10px"
-            }}
+            className = "upgrade"
         >
             <button 
                 onClick={() => {upgrade.incrementLevel();}}
