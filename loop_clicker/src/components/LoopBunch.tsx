@@ -1,6 +1,6 @@
-import React from "react";
+import elastic_ball_placeholder from "/assets/elastic_ball_placeholder.png";
 
-export default function LoopBunch() {
+export default function LoopBunchComponent() {
     let left : number = 100;
     let top : number = 100;
     let width: number = 100;
@@ -8,7 +8,7 @@ export default function LoopBunch() {
     return (
         <>
             <img
-            src={`/src/assets/elastic_ball_placeholder.png`}
+            src={elastic_ball_placeholder}
             draggable="false"
             style={{
                 left: `${left}px`,

@@ -1,41 +1,58 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+//App.tsx
 import './App.css'
-import Loop from './components/Loop'
+import LoopComponent from './components/Loop'
 import LoopBunch from './components/LoopBunch'
 import ScoreComponent from './components/ScoreComponent'
 import Score from './oop/game/Score'
+import LoopHandler from './oop/loop/LoopHandler'
+import { useLoopHandlerStore } from './oop/loop/UseLoopHandlerStore'
+import Loop from './oop/loop/Loop'
+import { useRef } from 'react'
+import Upgrades from './oop/upgrades/Upgrades'
+import UpgradesComponent from './components/UpgradesComponent'
+import ScoreUpgradeObserver from './oop/game/ScoreUpgradeObserver'
+import Data from './Data.json'
+import { useEffect } from 'react'
 
 function App() {
-  const [count, setCount] = useState(0)
-  const scoreObject = new Score();
+  const dataRef = useRef(Data);
+  const data = dataRef.current;
+  const loopHandlerRef = useRef(new LoopHandler());
+  const loopHandler = loopHandlerRef.current;
+  const scoreUpgradeObserverRef = useRef(new ScoreUpgradeObserver());
+  const scoreUpgradeObserver = scoreUpgradeObserverRef.current;
+  const scoreObjectRef = useRef(new Score(loopHandler, scoreUpgradeObserver));
+  const scoreObject = scoreObjectRef.current;
+  const upgradesRef = useRef(new Upgrades(scoreObject, scoreUpgradeObserver, data[0].value));
+  const upgrades = upgradesRef.current;
+  const loopHandlerState: Loop | null = useLoopHandlerStore(loopHandler);
+  console.log("app render");
+  useEffect(() => {
+    console.log("loopHandlerState changed:", loopHandlerState);
+  }, [loopHandlerState])
 
   return (
-    <div
-      onClick={() => {scoreObject.incrementScore(1);}}
-      style={{
-        userSelect: "none",
-        width: "100vw",
-        height: "100vh",
-        background: "grey"
-      }}
-      >
-      <ScoreComponent scoreObject = {scoreObject}/>
-      <Loop/>
-      <LoopBunch/>
+    <>
+      <div
+        onClick={() => {scoreObject.incrementScore(1);}}
+        style={{
+          userSelect: "none",
+          width: "100px",
+          height: "100px",
+          backgroundColor: "#242424"
+        }}
+        >
+        <LoopBunch/>
+        <LoopComponent/>
+      </div>
       <div>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
+        <ScoreComponent scoreObject = {scoreObject}/>
+        <p className="read-the-docs">
+          {}
         </p>
+        <UpgradesComponent upgrades={upgrades}/>
       </div>
-      <p className="read-the-docs">
-        This project includes clicking to increase score.
-      </p>
-    </div>
+    </>
   )
 }
 
