@@ -1,5 +1,6 @@
 import { useScoreStore } from "../oop/game/UseScoreStore";
 import Score from "../oop/game/Score";
+import numToStr from "../oop/numToStr";
 
 export default function ScoreComponent({scoreObject}: {scoreObject: Score}) {
     //set the number to the object state value
@@ -7,23 +8,10 @@ export default function ScoreComponent({scoreObject}: {scoreObject: Score}) {
     const score: number = state.score;
     const incrementAmount: number = state.incrementAmount;
     const clicksPerSecond: number = (incrementAmount);
-    const clicksPerSecondStr: string = clicksPerSecond.toFixed(2);
     let scoreDisplay: number = Math.floor(score);
-    let decimalIndicator: string = ""
     let scoreDisplayStr : string = scoreDisplay.toString();
-    const counter: number = state.counter;
-    if (scoreDisplay >= 1000000000) {
-        scoreDisplay = (scoreDisplay / 1000000);
-        decimalIndicator = "billion";
-        scoreDisplayStr = scoreDisplay.toFixed(2);
-    } else
-    if (scoreDisplay >= 1000000) {
-        scoreDisplay = (scoreDisplay / 1000);
-        decimalIndicator = " million";
-        scoreDisplayStr = scoreDisplay.toFixed(2);
-    }
-    scoreDisplayStr = scoreDisplayStr + decimalIndicator;
-    
+    scoreDisplayStr = numToStr(scoreDisplay);
+
     return (
         <div
             className="score"
@@ -32,7 +20,7 @@ export default function ScoreComponent({scoreObject}: {scoreObject: Score}) {
                 Score: {scoreDisplayStr}
             </h2>
             <h3>
-                clicks per second: {clicksPerSecondStr}
+                clicks per second: {numToStr(clicksPerSecond)}
             </h3>
             <p>
                 {/* counter: {counter} */}
