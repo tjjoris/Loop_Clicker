@@ -23,6 +23,7 @@ export default class Upgrade {
             this.costIncrease = 0;
             this.costMult = 0;
             this.state = {name: "scissors", cost: 0, iterationAmount: 0, count: 0, canAfford: false};
+            upgradesData;
         }
 
         public getState() {

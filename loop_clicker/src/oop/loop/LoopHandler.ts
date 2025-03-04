@@ -4,7 +4,7 @@
 
 import Loop from "./Loop";
 // import Elastic from "./Elastic";
-import LargeHadronCollider from "./LargeHadronCollider";
+// import LargeHadronCollider from "./LargeHadronCollider";
 
 type Listener = () => void;
 
@@ -21,6 +21,7 @@ export default class LoopHandler {
         //     this.loop = new LargeHadronCollider();
         //     this.notify();
         // }
+        score;
     }
 
     public subscribe(listener: Listener) { 
@@ -30,9 +31,9 @@ export default class LoopHandler {
             }
     }
 
-    private notify() {
-        this.listeners.forEach((listener) => listener());
-    }
+    // private notify() {
+    //     this.listeners.forEach((listener) => listener());
+    // }
 
     public getLoop() {
         return this.loop;

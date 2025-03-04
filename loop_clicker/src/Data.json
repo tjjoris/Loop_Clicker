@@ -5,15 +5,15 @@
             {
                 "name": "Super Scissors",
                 "cost": 10,
-                "incrementAmount": 0.0002,
-                "iterationIncrease": 0.0002,
+                "incrementAmount": 0.001,
+                "iterationIncrease": 0.001,
                 "costMult": 1.1
             },
             {
                 "name": "Hungry Cop",
                 "cost": 50,
-                "incrementAmount": 0.001,
-                "iterationIncrease": 0.001,
+                "incrementAmount": 0.005,
+                "iterationIncrease": 0.005,
                 "costMult": 1.1
             }
         ]

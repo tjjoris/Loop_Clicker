@@ -16,7 +16,7 @@ export default class Score {
     private loopHandler : LoopHandler;
     private scoreUpgradeObserver: ScoreUpgradeObserver;
     private intervalId: number | null = null;
-    private animationFrameId: number | null = null;
+    // private animationFrameId: number | null = null;
 
     constructor(loopHandler: LoopHandler, scoreUpgradeObserver: ScoreUpgradeObserver) {
         this.loopHandler = loopHandler;

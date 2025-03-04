@@ -1,5 +1,5 @@
 import Upgrade from "./Upgrade";
-import ScissorsUpgrade from "./ScissorsUpgrade";
+// import ScissorsUpgrade from "./ScissorsUpgrade";
 import Score from "../game/Score";
 import ScoreUpgradeObserver from "../game/ScoreUpgradeObserver";
 import BasicRepeatableUpgrade from "./BasicRepeatableUpgrade";
@@ -25,13 +25,14 @@ export default class Upgrades {
          upgradesData:{name: string; cost: number; incrementAmount: number; iterationIncrease: number; costMult: number}[] ) {
         this.scoreUpgradeObserver = scoreUpgradeObserver;
         upgradesData.forEach((upgradeData, index) => {
-            this.state[index] = new BasicRepeatableUpgrade(score, upgradesData[index]);            
+            this.state[index] = new BasicRepeatableUpgrade(score, upgradeData);            
 
             this.scoreUpgradeObserver.subscribe(this.state[index]);
         })
         console.log("constructor upgrades called");
         this.notify();
         this.upgradesData = upgradesData;
+        this.upgradesData;
     }
 
     public getState() {
