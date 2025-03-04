@@ -35,7 +35,7 @@ export default class Score {
             this.state = {score: this.state.score, incrementAmount: this.state.incrementAmount, counter: 0};
         }
         this.loopHandler.doChangeLoop(this.state.score);
-        console.log("incrememt by: " + this.state.incrementAmount)
+        // console.log("incrememt by: " + this.state.incrementAmount)
         this.scoreUpgradeObserver.noitify();
         this.notify();
     }
@@ -49,6 +49,8 @@ export default class Score {
             return () => {
                 this.listeners = this.listeners.filter((l) => l !== listener);
             }
+            
+        console.log("useSyncExternalScore listeners " + this.listeners.length);
     }
 
     public addIncrementAmount (amount: number) {

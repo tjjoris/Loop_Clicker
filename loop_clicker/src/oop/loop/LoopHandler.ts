@@ -17,7 +17,7 @@ export default class LoopHandler {
     }
 
     public doChangeLoop(score: number) {
-        if (score >= 10) {
+        if ((score >= 10) && !(this.loop instanceof LargeHadronCollider)) {
             this.loop = new LargeHadronCollider();
             this.notify();
         }

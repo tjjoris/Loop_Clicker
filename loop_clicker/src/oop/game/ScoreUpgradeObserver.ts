@@ -5,6 +5,7 @@ export default class ScoreUpgradeObserver {
 
     public subscribe(upgrade: Upgrade) {
         this.upgrades.push(upgrade);
+        console.log("scoreUpgradeObserver listners " + this.upgrades.length)
     }
 
     public unsubscribe(upgrade: Upgrade) {

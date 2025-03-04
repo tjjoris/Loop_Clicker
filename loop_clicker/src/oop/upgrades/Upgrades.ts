@@ -29,6 +29,7 @@ export default class Upgrades {
 
             this.scoreUpgradeObserver.subscribe(this.state[index]);
         })
+        console.log("constructor upgrades called");
         this.notify();
         this.upgradesData = upgradesData;
     }

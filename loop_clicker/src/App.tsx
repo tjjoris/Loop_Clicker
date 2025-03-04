@@ -18,12 +18,14 @@ function App() {
   const data = dataRef.current;
   const loopHandlerRef = useRef(new LoopHandler());
   const loopHandler = loopHandlerRef.current;
-  const scoreUpgradeObserver = useRef(new ScoreUpgradeObserver());
-  const scoreObjectRef = useRef(new Score(loopHandler, scoreUpgradeObserver.current));
+  const scoreUpgradeObserverRef = useRef(new ScoreUpgradeObserver());
+  const scoreUpgradeObserver = scoreUpgradeObserverRef.current;
+  const scoreObjectRef = useRef(new Score(loopHandler, scoreUpgradeObserver));
   const scoreObject = scoreObjectRef.current;
-  const upgradesRef = useRef(new Upgrades(scoreObject, scoreUpgradeObserver.current, data[0].value));
+  const upgradesRef = useRef(new Upgrades(scoreObject, scoreUpgradeObserver, data[0].value));
   const upgrades = upgradesRef.current;
   const loopHandlerState: Loop | null = useLoopHandlerStore(loopHandler);
+  console.log("app render");
   return (
     <>
       <div
