@@ -54,11 +54,6 @@ export default function LoopBunchComponent({score, loopBunch}:{score: Score, loo
                     )
                 })
             }
-            
-            <p 
-            style={{color: "black"}}>
-                {state.length}
-            </p>
         </>
     )
 }
