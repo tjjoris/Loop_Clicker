@@ -51,7 +51,7 @@ export default class Upgrade {
     }
 
     public update() {
-        console.log("update");
+        // console.log("update");
         if (this.isAfford != this.score.isAfford(this.state.cost)) {
             this.isAfford = this.score.isAfford(this.state.cost);
             console.log("change can afford to " + this.isAfford);

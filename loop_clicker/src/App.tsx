@@ -1,7 +1,7 @@
 //App.tsx
 import './App.css'
 import LoopComponent from './components/Loop'
-import LoopBunch from './components/LoopBunch'
+import LoopBunchComponent from './components/LoopBunch'
 import ScoreComponent from './components/ScoreComponent'
 import Score from './oop/game/Score'
 import LoopHandler from './oop/loop/LoopHandler'
@@ -11,6 +11,7 @@ import { useRef } from 'react'
 import Upgrades from './oop/upgrades/Upgrades'
 import UpgradesComponent from './components/UpgradesComponent'
 import ScoreUpgradeObserver from './oop/game/ScoreUpgradeObserver'
+import LoopBunch from './oop/loop/LoopBunch'
 import Data from './Data.json'
 import { useEffect } from 'react'
 
@@ -19,6 +20,8 @@ function App() {
   const data = dataRef.current;
   const loopHandlerRef = useRef(new LoopHandler());
   const loopHandler = loopHandlerRef.current;
+  const loopBunchRef = useRef(new LoopBunch());
+  const loopBunch = loopBunchRef.current;
   const scoreUpgradeObserverRef = useRef(new ScoreUpgradeObserver());
   const scoreUpgradeObserver = scoreUpgradeObserverRef.current;
   const scoreObjectRef = useRef(new Score(loopHandler, scoreUpgradeObserver));
@@ -42,7 +45,7 @@ function App() {
           backgroundColor: "#242424"
         }}
         >
-        <LoopBunch score={scoreObject}/>
+        <LoopBunchComponent score={scoreObject} loopBunch={loopBunch}/>
         {/* <LoopComponent/> */}
       </div>
       <div>
