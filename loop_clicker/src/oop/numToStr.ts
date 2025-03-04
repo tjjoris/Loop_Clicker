@@ -17,6 +17,12 @@ export default function numToStr(num: number): string {
         num = (num / 1000000);
         decimalIndicator = " million";
         numOnlyStr = num.toFixed(2);
+    } else 
+    if (num >= 1000) {
+        numOnlyStr = Math.floor(num).toString();
+    }
+    else {
+        numOnlyStr = num.toFixed(2);
     }
     report = numOnlyStr + decimalIndicator;
     // report = num.toString();
