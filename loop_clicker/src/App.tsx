@@ -34,7 +34,7 @@ function App() {
   return (
     <>
       <div
-        onClick={() => {scoreObject.incrementScore(1);}}
+        // onClick={() => {scoreObject.incrementScore(1);}}
         style={{
           userSelect: "none",
           width: "100px",
@@ -42,8 +42,8 @@ function App() {
           backgroundColor: "#242424"
         }}
         >
-        <LoopBunch/>
-        <LoopComponent/>
+        <LoopBunch score={scoreObject}/>
+        {/* <LoopComponent/> */}
       </div>
       <div>
         <ScoreComponent scoreObject = {scoreObject}/>

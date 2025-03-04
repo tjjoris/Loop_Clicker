@@ -1,9 +1,10 @@
 /**
- * the loop object, used for displaying if a loop is visible on the screen, it's position, rotation, and sprite.
+ *the loop object, is displayed whenever the user clicks the loop bunch.
  */
 
 export default class Loop {
     protected state: { isEnabled: boolean; x: number; y: number; width: number; height: number; spriteName: string};
+
 
     constructor() {
         this.state = {
