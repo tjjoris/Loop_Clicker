@@ -1,5 +1,4 @@
 export default function numToStr(num: number): string {
-    num = Math.floor(num);
     let report: string = "";
     let decimalIndicator : string = "";
     let numOnlyStr: string = num.toString();

@@ -28,21 +28,32 @@ export default function UpgradeComponent({upgrade}: {upgrade: Upgrade}) {
                     backgroundColor: backgColour
                 }}
             >
-                <p>
-                    {name}
-                </p>
-                <p>
-                    count: {count}
-                </p>
-                <p>
-                    cost: {costStr}
-                </p>
-                <p>
-                    iteration per level {upgrade.getIterationPerLevel()}
-                </p>
-                <p>
-                    total iteration {iterationAmountStr}
-                </p>
+                <div
+                    className="divInUpgrade"
+                >
+                    <div
+                        className="imageInUpgrade"
+                    >
+
+                    </div>
+                    <div>
+                        <p>
+                            {name}
+                        </p>
+                        <p>
+                            count: {count}
+                        </p>
+                        <p>
+                            cost: {costStr}
+                        </p>
+                        <p>
+                            iteration per level {upgrade.getIterationPerLevel()}
+                        </p>
+                        <p>
+                            total iteration {iterationAmountStr}
+                        </p>
+                    </div>
+                </div>
             </button>
         </div>
     )

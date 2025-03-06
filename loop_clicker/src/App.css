@@ -51,6 +51,18 @@
   position: relative;
 }
 
+.divInUpgrade {
+  display: flex;
+  fles-direction: column;
+}
+
+.imageInUpgrade {
+  width: 100px;
+  height: 100px;
+  background-color: white;
+  margin: 5px;
+}
+
 div {
   vertical-align: top;
 }
