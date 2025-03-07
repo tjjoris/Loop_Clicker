@@ -20,13 +20,13 @@
 .loopsAndUpgrades.desktop {
   display: flex;
   position: relative;
-  flex-direction: row;
+  flex-direction: row-reverse;
 }
 
 .loopsAndUpgrades.mobile {
   display: flex;
   position: relative;
-  flex-direction: column;
+  flex-direction: column-reverse;
   /* clip-path: inset(300px 0px 0px 0px);
   pointer-events: auto; */
 }
@@ -34,7 +34,20 @@
 .loopBunchColumn {
   width: 400px;
   height: 300px;
+  background-color: #242424;
+  position:fixed;
+  left: 0px;
+  top: 0px;
 }
+/* .loopBunchColumn.desktop{
+  width: 400px;
+  height: 300px;
+  background-color: #242424;
+  position:fixed;
+  left: 0px;
+  top: 0px;
+
+} */
 
 .scoreAndLoopBunch {
   position: fixed;
@@ -42,19 +55,32 @@
   flex-direction: column;
   left: 10px;
   top: 10px;
+  /* background-color: black; */
 }
 
 .score {
     position: absolute;
-    width: 500px
+    width: 500px;
+    /* background-color: black; */
 }
 
 .loopBunch {
   position: absolute;
+  /* background-color: black; */
 }
 
 .upgradesColumn {
   position: relative;
+}
+
+.upgradesColumn.mobile{
+  position:relative;
+  top: 300px;
+}
+.upgradesColumn.desktop{
+  position:relative;
+  top: 0px;
+  left: 400px;
 }
 
 .upgradesComponent {

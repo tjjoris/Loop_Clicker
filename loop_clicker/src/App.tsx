@@ -46,9 +46,16 @@ function App() {
       <div
         className= {`loopsAndUpgrades ${reactive}`}
         >
-            
+
           <div
-            className = {'loopBunchColumn'}
+            className={`upgradesColumn ${reactive}`}
+          >
+            <UpgradesComponent upgrades={upgrades}/>
+          </div>
+
+
+          <div
+            className = {`loopBunchColumn ${reactive}`}
           >   
             
             <div
@@ -62,11 +69,7 @@ function App() {
                 </div>
             </div>
           </div>
-          <div
-            className={'upgradesColumn'}
-          >
-            <UpgradesComponent upgrades={upgrades}/>
-          </div>
+          
         </div>
     </div>
   )
