@@ -27,6 +27,8 @@
   display: flex;
   position: relative;
   flex-direction: column;
+  /* clip-path: inset(300px 0px 0px 0px);
+  pointer-events: auto; */
 }
 
 .loopBunchColumn {
