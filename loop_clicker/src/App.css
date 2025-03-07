@@ -53,6 +53,11 @@
   position: relative;
 }
 
+.upgradesComponent {
+  display: flex;
+  flex-direction: column;
+}
+
 .divInUpgrade {
   display: flex;
   fles-direction: column;

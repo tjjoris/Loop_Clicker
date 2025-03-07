@@ -9,13 +9,14 @@ export default function UpgradesComponent({upgrades}: {upgrades: Upgrades}) {
 
     return (
         <div
-            style={{
-                // position:"absolute",
-                // left: `${x}px`,
-                // top:`${y}px`,
-                display: "flex",
-                flexDirection: "column"
-            }}
+            className="upgradesComponent"
+            // style={{
+            //     // position:"absolute",
+            //     // left: `${x}px`,
+            //     // top:`${y}px`,
+            //     display: "flex",
+            //     flexDirection: "column"
+            // }}
         >
             {state.map((upgrade, index) => {
                 return <UpgradeComponent key = {index} upgrade={upgrade} index={index}/>;
