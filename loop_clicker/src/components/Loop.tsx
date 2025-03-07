@@ -21,40 +21,28 @@ export default function LoopComponent ({x, loop, incrementAmount: amountPerClick
                 style={{
                     left: `${left}px`,
                     top: `${top}px`,
-                    position: "absolute",
+                    //moved position absoute into App.css
                     width: `${width}px`,
                     height: `${height}px`,
-                    pointerEvents: "none"}}
+                }}
             >
                 <img 
                 src={broken_elastic_bit_01}
                 draggable="false"
                 style={{
-                //     left: `${left}px`,
-                //     top: `${top}px`,
-                //     position: "absolute",
                     width: `${width}px`,
                     height: `${height}px`,
-                //     pointerEvents: "none"
                 }}
                 />
                 <div
+                    className="textDivInLoop"
                     style={{
-                        position: "absolute",
+                        //move position: abolute into App.css
                         top: `${height / 2}px`,
-                        left: `${width / 2}px`//,
-                        // textAlign: "center"
+                        left: `${width / 2}px`
                     }}
                 >
-                    <p
-                        style={{
-                            // color: "black"
-                            // position: "absolute",
-                            // top: `${height / 2}px`,
-                            // left: `${width / 2}px`,
-                            textAlign: "center"
-                        }}
-                    >
+                    <p>
                         {incrementAmountStr}
                     </p>
                 </div>
