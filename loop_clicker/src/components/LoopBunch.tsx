@@ -36,13 +36,14 @@ export default function LoopBunchComponent({score, loopBunch}:{score: Score, loo
     return (
         <>
             <img
+            className="loopBunch"
             src={elastic_ball_image}
             draggable="false"
             onClick={clickEvent}
             style={{
                 left: `${left}px`,
                 top: `${top}px`,
-                position: "absolute",
+                // moved position absolute into App.css
                 width: `${width}px`,
                 height: `${height}px`
             }}
