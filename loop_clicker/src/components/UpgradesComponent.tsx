@@ -4,21 +4,15 @@ import UpgradeComponent from "./UpgradeComponent";
 
 export default function UpgradesComponent({upgrades}: {upgrades: Upgrades}) {
     const state = useUpgradesStore(upgrades)
-    let x = 300;
-    let y = 300;
+    // let x = 300;
+    // let y = 300;
 
     return (
         <div
-            style={{
-                position:"absolute",
-                left: `${x}px`,
-                top:`${y}px`,
-                display: "flex",
-                flexDirection: "column"
-            }}
+            className="upgradesComponent"
         >
             {state.map((upgrade, index) => {
-                return <UpgradeComponent key = {index} upgrade={upgrade} />;
+                return <UpgradeComponent key = {index} upgrade={upgrade} index={index}/>;
                 // return <p> hello</p>
             })}
         </div>

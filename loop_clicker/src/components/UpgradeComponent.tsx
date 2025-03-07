@@ -1,11 +1,13 @@
 import { useUpgradeStore } from "../oop/upgrades/useUpgradeStore";
 import Upgrade from "../oop/upgrades/Upgrade";
+import Safety_Scissors from "../../assets/Safety_Scissors.png"
 
 /**
  * this component displays current upgrade info, it is subscribed to the Upgrade object to get it.
  */
 
-export default function UpgradeComponent({upgrade}: {upgrade: Upgrade}) {
+export default function UpgradeComponent({upgrade, index}: {upgrade: Upgrade, index: number}) {
+    const upgradeImages: string[] = [Safety_Scissors];
     const state = useUpgradeStore(upgrade);
     const name: string = state.name;
     const count: number = state.count;
@@ -20,10 +22,7 @@ export default function UpgradeComponent({upgrade}: {upgrade: Upgrade}) {
 
     return (
         <div
-            style={{
-                
-                    padding: "10px"
-            }}
+            className = "upgrade"
         >
             <button 
                 onClick={() => {upgrade.incrementLevel();}}
@@ -31,18 +30,35 @@ export default function UpgradeComponent({upgrade}: {upgrade: Upgrade}) {
                     backgroundColor: backgColour
                 }}
             >
-                <p>
-                    {name}
-                </p>
-                <p>
-                    count: {count}
-                </p>
-                <p>
-                    cost: {costStr}
-                </p>
-                <p>
-                    iteration amount {iterationAmountStr}
-                </p>
+                <div
+                    className="divInUpgrade"
+                >
+                    {
+                        upgradeImages[index] != null ? (
+                            <img 
+                            className="imageInUpgrade"
+                            src={upgradeImages[index]}
+                        />
+                        ): null
+                    }
+                    <div>
+                        <p>
+                            {name}
+                        </p>
+                        <p>
+                            count: {count}
+                        </p>
+                        <p>
+                            cost: {costStr}
+                        </p>
+                        <p>
+                            iteration per level {upgrade.getIterationPerLevel()}
+                        </p>
+                        <p>
+                            total iteration {iterationAmountStr}
+                        </p>
+                    </div>
+                </div>
             </button>
         </div>
     )

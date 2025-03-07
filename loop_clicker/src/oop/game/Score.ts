@@ -16,6 +16,7 @@ export default class Score {
     private loopHandler : LoopHandler;
     private scoreUpgradeObserver: ScoreUpgradeObserver;
     private intervalId: number | null = null;
+    private amountPerClick: number = 1;
     // private animationFrameId: number | null = null;
 
     constructor(loopHandler: LoopHandler, scoreUpgradeObserver: ScoreUpgradeObserver) {
@@ -44,6 +45,10 @@ export default class Score {
         return this.state;
     }
 
+    public getAmountPerClick() {
+        return this.amountPerClick;
+    }
+
     public subscribe(listener: Listener) { 
         this.listeners.push(listener);
             return () => {
@@ -55,6 +60,7 @@ export default class Score {
 
     public addIncrementAmount (amount: number) {
         this.state = {score: this.state.score, incrementAmount: this.state.incrementAmount + amount, counter: this.state.counter};
+        this.amountPerClick = 1 + (this.state.incrementAmount )
         this.notify();
     }
 
@@ -71,7 +77,7 @@ export default class Score {
             clearInterval(this.intervalId);
         }
         this.intervalId = window.setInterval(() => {
-            this.incrementScore(this.state.incrementAmount);
+            this.incrementScore(this.state.incrementAmount / 30);
         } , rate);
     }
 

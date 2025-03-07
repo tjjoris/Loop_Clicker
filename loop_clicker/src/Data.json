@@ -4,17 +4,65 @@
         "value": [
             {
                 "name": "Super Scissors",
-                "cost": 10,
-                "incrementAmount": 0.001,
-                "iterationIncrease": 0.001,
-                "costMult": 1.1
+                "cost": 8,
+                "incrementAmount": 0.053,
+                "costMult": 1.2
             },
             {
                 "name": "Hungry Cop",
-                "cost": 50,
-                "incrementAmount": 0.005,
-                "iterationIncrease": 0.005,
-                "costMult": 1.1
+                "cost": 32,
+                "incrementAmount": 1.213,
+                "costMult": 1.2
+            },            
+            {
+                "name": "Bratty Kid",
+                "cost": 128,
+                "incrementAmount": 0.853,
+                "costMult": 1.2
+            },
+            {
+                "name": "caltrops",
+                "cost": 512,
+                "incrementAmount": 3.413,
+                "costMult": 1.2
+            },
+            
+            {
+                "name": "Shady Laywers",
+                "cost": 2048,
+                "incrementAmount": 13.65,
+                "costMult": 1.2
+            },
+            {
+                "name": "Godzilla",
+                "cost": 8192,
+                "incrementAmount": 54.61,
+                "costMult": 1.2
+            },
+            
+            {
+                "name": "a speck of dust",
+                "cost": 32768,
+                "incrementAmount": 218.45,
+                "costMult": 1.2
+            },
+            {
+                "name": "the Kessler syndrome",
+                "cost": 131072,
+                "incrementAmount": 873.81,
+                "costMult": 1.2
+            },
+            {
+                "name": "Death Star",
+                "cost": 524288,
+                "incrementAmount": 3495.25,
+                "costMult": 1.2
+            },
+            {
+                "name": "The Great Attractor",
+                "cost": 2097152,
+                "incrementAmount": 13981,
+                "costMult": 1.2
             }
         ]
     }
