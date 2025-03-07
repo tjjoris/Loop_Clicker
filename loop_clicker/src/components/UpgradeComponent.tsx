@@ -12,6 +12,7 @@ export default function UpgradeComponent({upgrade, index}: {upgrade: Upgrade, in
     const upgradeImages: string[] = [Safety_Scissors, Potholes, Godzilla];
     const state = useUpgradeStore(upgrade);
     const name: string = state.name;
+    const description: string = state.description;
     const count: number = state.count;
     const iterationAmount: number = state.iterationAmount;
     const iterationAmountStr: string = iterationAmount.toFixed(2);
@@ -39,6 +40,7 @@ export default function UpgradeComponent({upgrade, index}: {upgrade: Upgrade, in
                         upgradeImages[index] != null ? (
                             <img 
                             className="imageInUpgrade"
+                            draggable="false"
                             src={upgradeImages[index]}
                         />
                         ): null
@@ -46,6 +48,9 @@ export default function UpgradeComponent({upgrade, index}: {upgrade: Upgrade, in
                     <div>
                         <p>
                             {name}
+                        </p>
+                        <p>
+                            {description}
                         </p>
                         <p>
                             count: {count}

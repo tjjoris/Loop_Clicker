@@ -13,7 +13,7 @@ export default class Upgrades {
     private state : Upgrade[] = []
     private listeners : Listener[] = [];
     private scoreUpgradeObserver: ScoreUpgradeObserver;
-    private upgradesData: {name: string; cost: number; incrementAmount: number; costMult: number}[]
+    private upgradesData: {name: string; description: string; cost: number; incrementAmount: number; costMult: number}[]
 
 /**
  * 
@@ -22,7 +22,7 @@ export default class Upgrades {
  * @param upgradesData the object taken from data.json containing all upgrades.
  */
     constructor(score: Score, scoreUpgradeObserver: ScoreUpgradeObserver,
-         upgradesData:{name: string; cost: number; incrementAmount: number; costMult: number}[] ) {
+         upgradesData:{name: string; description: string; cost: number; incrementAmount: number; costMult: number}[] ) {
         this.scoreUpgradeObserver = scoreUpgradeObserver;
         upgradesData.forEach((upgradeData, index) => {
             this.state[index] = new BasicRepeatableUpgrade(score, upgradeData);            

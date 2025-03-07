@@ -28,7 +28,7 @@
                 "description": "Destroys the game loop.",
                 "cost": 512,
                 "incrementAmount": 0,
-                "costmult": 1
+                "costMult": 1
             }
         ]
     }

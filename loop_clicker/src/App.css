@@ -88,16 +88,12 @@
   flex-direction: column;
 }
 
-.divInUpgrade {
-  display: flex;
-  fles-direction: column;
-}
-
 .imageInUpgrade {
   width: 100px;
   height: 100px;
   background-color: white;
   margin: 5px;
+  pointer-events: none;
 }
 
 div {
@@ -123,6 +119,16 @@ div {
   margin: 0px;
   padding: 5px;
   border: 0px;
+}
+
+.upgrade button {
+  width: 400px;
+}
+
+.divInUpgrade {
+  display: flex;
+  pointer-events: none;
+  /* flex-direction: column; */
 }
 
 .upgrade p {
