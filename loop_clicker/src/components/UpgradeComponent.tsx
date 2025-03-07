@@ -33,9 +33,6 @@ export default function UpgradeComponent({upgrade, index}: {upgrade: Upgrade, in
                 <div
                     className="divInUpgrade"
                 >
-                    {/* <div
-                        className="imageInUpgrade"
-                    > */}
                     {
                         upgradeImages[index] != null ? (
                             <img 
@@ -44,11 +41,6 @@ export default function UpgradeComponent({upgrade, index}: {upgrade: Upgrade, in
                         />
                         ): null
                     }
-                        {/* <img 
-                            className="imageInUpgrade"
-                            src={upgradeImages[0]}
-                        /> */}
-                    {/* </div> */}
                     <div>
                         <p>
                             {name}
