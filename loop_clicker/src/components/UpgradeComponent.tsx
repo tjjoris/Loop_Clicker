@@ -1,11 +1,13 @@
 import { useUpgradeStore } from "../oop/upgrades/useUpgradeStore";
 import Upgrade from "../oop/upgrades/Upgrade";
+import Safety_Scissors from "../../assets/Safety_Scissors.png"
 
 /**
  * this component displays current upgrade info, it is subscribed to the Upgrade object to get it.
  */
 
-export default function UpgradeComponent({upgrade}: {upgrade: Upgrade}) {
+export default function UpgradeComponent({upgrade, index}: {upgrade: Upgrade, index: number}) {
+    const upgradeImages: string[] = [Safety_Scissors];
     const state = useUpgradeStore(upgrade);
     const name: string = state.name;
     const count: number = state.count;
@@ -31,11 +33,22 @@ export default function UpgradeComponent({upgrade}: {upgrade: Upgrade}) {
                 <div
                     className="divInUpgrade"
                 >
-                    <div
+                    {/* <div
                         className="imageInUpgrade"
-                    >
-
-                    </div>
+                    > */}
+                    {
+                        upgradeImages[index] != null ? (
+                            <img 
+                            className="imageInUpgrade"
+                            src={upgradeImages[index]}
+                        />
+                        ): null
+                    }
+                        {/* <img 
+                            className="imageInUpgrade"
+                            src={upgradeImages[0]}
+                        /> */}
+                    {/* </div> */}
                     <div>
                         <p>
                             {name}

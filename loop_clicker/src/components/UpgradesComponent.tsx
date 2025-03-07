@@ -18,7 +18,7 @@ export default function UpgradesComponent({upgrades}: {upgrades: Upgrades}) {
             }}
         >
             {state.map((upgrade, index) => {
-                return <UpgradeComponent key = {index} upgrade={upgrade} />;
+                return <UpgradeComponent key = {index} upgrade={upgrade} index={index}/>;
                 // return <p> hello</p>
             })}
         </div>
