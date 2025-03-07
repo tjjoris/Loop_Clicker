@@ -60,7 +60,7 @@
 
 .score {
     position: absolute;
-    width: 500px;
+    width: 300px;
     /* background-color: black; */
 }
 
@@ -88,13 +88,6 @@
   flex-direction: column;
 }
 
-.imageInUpgrade {
-  width: 100px;
-  height: 100px;
-  background-color: white;
-  margin: 5px;
-  pointer-events: none;
-}
 
 div {
   vertical-align: top;
@@ -129,6 +122,14 @@ div {
   display: flex;
   pointer-events: none;
   /* flex-direction: column; */
+}
+
+.imageInUpgrade {
+  pointer-events: none;
+  width: 100px;
+  height: 100px;
+  background-color: whitesmoke;
+  margin: 5px;
 }
 
 .upgrade p {

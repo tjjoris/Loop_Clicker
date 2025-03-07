@@ -40,7 +40,7 @@ export default function UpgradeComponent({upgrade, index}: {upgrade: Upgrade, in
                         upgradeImages[index] != null ? (
                             <img 
                             className="imageInUpgrade"
-                            draggable="false"
+                            // draggable="false"
                             src={upgradeImages[index]}
                         />
                         ): null

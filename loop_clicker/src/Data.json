@@ -6,7 +6,7 @@
                 "name": "Super Scissors",
                 "description": "Destroys elastic bands quickly",
                 "cost": 8,
-                "incrementAmount": 0.053,
+                "incrementAmount": 0.5,
                 "costMult": 1.2
             },
             {
