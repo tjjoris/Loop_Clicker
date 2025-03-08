@@ -2,6 +2,7 @@
 import './App.css'
 import LoopBunchComponent from './components/LoopBunch'
 import ScoreComponent from './components/ScoreComponent'
+import GameEndComponent from './components/GameEndComponent'
 import Score from './oop/game/Score'
 import LoopHandler from './oop/loop/LoopHandler'
 import { useLoopHandlerStore } from './oop/loop/UseLoopHandlerStore'
@@ -74,6 +75,7 @@ function App() {
           </div>
           
         </div>
+        <GameEndComponent/>
     </div>
   )
 }

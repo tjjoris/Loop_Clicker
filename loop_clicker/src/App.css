@@ -158,10 +158,9 @@ div {
   pointer-events: none;
 }
 
-.upgrade p :not(.upgradeCost.upgradeTitle) {
+/* .upgrade p :not(.upgradeCost.upgradeTitle) {
 
-  color: cornsilk;
-}
+} */
 
 .upgradeTitleAndInfo {
   width: 400px;
@@ -191,4 +190,13 @@ div {
   height: 100px;
   background-color: whitesmoke;
   margin: 5px;
+}
+
+.gameEnd {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100px;
+  height: 100px;
+  background-color: black;
 }
