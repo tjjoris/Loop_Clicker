@@ -1,15 +1,15 @@
 import { useUpgradeStore } from "../oop/upgrades/useUpgradeStore";
 import Upgrade from "../oop/upgrades/Upgrade";
 import Safety_Scissors from "../../assets/Safety_Scissors.png"
-import Potholes from "../../assets/Potholes_Cropped.png";
 import Godzilla from "../../assets/Godzilla.png"
+import Tire_Fire1 from "../../assets/Tire_Fire1.png"
 
 /**
  * this component displays current upgrade info, it is subscribed to the Upgrade object to get it.
  */
 
 export default function UpgradeComponent({upgrade, index}: {upgrade: Upgrade, index: number}) {
-    const upgradeImages: string[] = [Safety_Scissors, Potholes, Godzilla];
+    const upgradeImages: string[] = [Safety_Scissors, Tire_Fire1, Godzilla, Godzilla, Godzilla, Godzilla, Godzilla];
     const state = useUpgradeStore(upgrade);
     const name: string = state.name;
     const description: string = state.description;
