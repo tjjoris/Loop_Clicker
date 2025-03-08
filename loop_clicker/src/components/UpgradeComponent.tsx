@@ -1,9 +1,11 @@
 import { useUpgradeStore } from "../oop/upgrades/useUpgradeStore";
 import Upgrade from "../oop/upgrades/Upgrade";
 import Upgrader from "../oop/upgrades/Upgrader";
-import Safety_Scissors from "../../assets/Safety_Scissors.png"
-import Godzilla from "../../assets/Godzilla.png"
-import Tire_Fire1 from "../../assets/Tire_Fire1.png"
+import Super_Scissors from "../../assets/SuperScissors.png"
+import Godzilla from "../../assets/GodzillaOCv2.png"
+import Tire_Fire from "../../assets/Tire_Firev2.png"
+import Blackhole from "../../assets/Blackhole.png"
+import Bad_Programmer from "../../assets/Bad_Programmer.png"
 import numToStr from "../oop/numToStr";
 
 /**
@@ -11,7 +13,7 @@ import numToStr from "../oop/numToStr";
  */
 
 export default function UpgradeComponent({upgrade, index, upgrader}: {upgrade: Upgrade, index: number, upgrader: Upgrader}) {
-    const upgradeImages: string[] = [Safety_Scissors, Tire_Fire1, Godzilla, Godzilla, Godzilla, Godzilla, Godzilla];
+    const upgradeImages: string[] = [Super_Scissors, Tire_Fire, Godzilla, Godzilla, Godzilla, Blackhole, Bad_Programmer];
     const state = useUpgradeStore(upgrade);
     const name: string = state.name;
     const description: string = state.description;
