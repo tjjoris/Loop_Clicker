@@ -54,7 +54,9 @@ export default function UpgradeComponent({upgrade, index, upgrader}: {upgrade: U
                             ): null
                         }
                         <div>
-                            <p>
+                            <p
+                                className="upgradeTitle"
+                            >
                                 {name}
                             </p>
                             <p>
@@ -63,7 +65,9 @@ export default function UpgradeComponent({upgrade, index, upgrader}: {upgrade: U
                             <p>
                                 count: {countStr}
                             </p>
-                            <p>
+                            <p
+                                className="upgradeCost"
+                            >
                                 cost: {costStr}
                             </p>
                             <p>
@@ -84,7 +88,9 @@ export default function UpgradeComponent({upgrade, index, upgrader}: {upgrade: U
             <div
                 className = "unrevealedUpgrade"
             >
-                <p>
+                <p
+                    className="upgradeCost"
+                >
                     {costStr}
                 </p>
             </div>
