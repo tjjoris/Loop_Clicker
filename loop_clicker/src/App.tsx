@@ -13,6 +13,7 @@ import ScoreUpgradeObserver from './oop/game/ScoreUpgradeObserver'
 import LoopBunch from './oop/loop/LoopBunch'
 import Data from './Data.json'
 import { useEffect } from 'react'
+import Upgrader from './oop/upgrades/Upgrader'
 
 function App() {
   const dataRef = useRef(Data);
@@ -27,6 +28,8 @@ function App() {
   const scoreObject = scoreObjectRef.current;
   const upgradesRef = useRef(new Upgrades(scoreObject, scoreUpgradeObserver, data[0].value));
   const upgrades = upgradesRef.current;
+  const upgraderRef = useRef(new Upgrader(upgrades.getState()));
+  const upgrader = upgraderRef.current;
   const loopHandlerState: Loop | null = useLoopHandlerStore(loopHandler);
   console.log("app render");
 
@@ -50,7 +53,7 @@ function App() {
           <div
             className={`upgradesColumn ${reactive}`}
           >
-            <UpgradesComponent upgrades={upgrades}/>
+            <UpgradesComponent upgrades={upgrades} upgrader= {upgrader}/>
           </div>
 
 
@@ -65,7 +68,7 @@ function App() {
                 <ScoreComponent scoreObject = {scoreObject}/>      
               </div>
               <div>
-                <LoopBunchComponent score={scoreObject} loopBunch={loopBunch}/>
+                <LoopBunchComponent score={scoreObject} loopBunch={loopBunch} />
                 </div>
             </div>
           </div>

@@ -11,19 +11,23 @@ export default class Upgrade {
         protected costIncrease: number; //the amount the cost increases, this increases with each level.
         protected iterationIncrease: number; //the amount the iteraction increases with each level, this increases with each level.
         protected costMult: number; //the amount the cost cost increase multiplies with each level.
-        protected state : {name: string; description: string; cost: number; iterationAmount: number; count: number; canAfford: boolean};
+        protected state : {name: string; description: string; cost: number; iterationAmount: number; count: number; canAfford: boolean, isReveal: boolean};
         protected iterationPerLevel: number;
         private listeners: Listener[] = [];
         private isAfford : boolean = false;
+        private index: number;
+        private isRevealed: boolean;
 
-        constructor (score: Score, upgradesData: {name: string; description: string; cost: number; incrementAmount: number; costMult: number}) {
+        constructor (score: Score, upgradesData: {name: string; description: string; cost: number; incrementAmount: number; costMult: number}, index: number) {
             this.score = score;
             this.iterationIncrease = 0;
             this.costIncrease = 0;
             this.costMult = 0;
             this.iterationPerLevel = 0;
-            this.state = {name: "scissors", description: "super scissors", cost: 0, iterationAmount: 0, count: 0, canAfford: false};
+            this.state = {name: "scissors", description: "super scissors", cost: 0, iterationAmount: 0, count: 0, canAfford: false, isReveal: false};
             upgradesData;
+            this.index = index;
+            this.isRevealed = false;
         }
 
         public getState() {
@@ -34,17 +38,46 @@ export default class Upgrade {
             return this.iterationPerLevel;
         }
 
+        public reveal() {
+            this.isRevealed = true;
+            this.state = {name: this.state.name, description: this.state.description, cost: this.state.cost, iterationAmount: this.state.iterationAmount, count: this.state.count, canAfford: this.state.canAfford, isReveal: true};
+            this.notify();
+        }
+
+        public getReveal() {
+            return this.isRevealed;
+        }
+
+        public getIndex() {
+            return this.index;
+        }
+
     public incrementLevel() {
+        if (this.isRevealed != true) {
+            return; //only allow increment if revealed
+        }
         if (this.score.isAfford(this.state.cost)) {
             this.isAfford = this.score.isAfford(this.state.cost);
             this.score.subtractScore(this.state.cost);
             let cost = this.state.cost * this.costMult
             this.state = {name: this.state.name, description: this.state.description, cost: cost,
                 iterationAmount: this.state.iterationAmount + this.iterationIncrease, count: this.state.count + 1,
-            canAfford: this.score.isAfford(cost)};
+            canAfford: this.canAfford(cost), isReveal: this.state.isReveal};
             this.score.addIncrementAmount(this.iterationIncrease);
             this.notify();
         };
+    }
+
+    /**
+     * to check if it can be afforded first check if its revealed then if it 
+     * can be afforded by checking score.
+     * @returns 
+     */
+    private canAfford(cost: number) {
+        if (!this.isRevealed) {
+            return false;
+        }
+        return this.score.isAfford(cost);
     }
 
     public subscribe(listener: Listener) { 
@@ -61,7 +94,8 @@ export default class Upgrade {
             console.log("change can afford to " + this.isAfford);
             
         this.state = {canAfford : this.isAfford,
-            name: this.state.name, description: this.state.description, cost: this.state.cost, iterationAmount: this.state.iterationAmount, count: this.state.count}
+            name: this.state.name, description: this.state.description, cost: this.state.cost, 
+            iterationAmount: this.state.iterationAmount, count: this.state.count, isReveal: this.state.isReveal}
             console.log("can afford sate: "+ this.state.canAfford);
             this.notify();
         }

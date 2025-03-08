@@ -7,6 +7,13 @@
   vertical-align: top;
 }
 
+
+div {
+  vertical-align: top;
+}
+
+
+
 .mainBoard {
   display: flex;
   align-items: flex-start;
@@ -38,6 +45,7 @@
   position:fixed;
   left: 0px;
   top: 0px;
+  width:413px
 }
 /* .loopBunchColumn.desktop{
   width: 400px;
@@ -55,6 +63,7 @@
   flex-direction: column;
   left: 10px;
   top: 10px;
+  /* width: 300px; */
   /* background-color: black; */
 }
 
@@ -67,6 +76,23 @@
 .loopBunch {
   position: absolute;
   /* background-color: black; */
+  width: 200px;
+  height: 200px;
+}
+
+.loop {
+  color: black;
+  font-weight: 500;
+  text-align: center;
+  position: absolute;
+  pointer-events: none;
+  text-align: center;
+}
+
+.textDivInLoop {
+  position: absolute;
+  color: white;
+  text-shadow: 0px 0px 5px black;
 }
 
 .upgradesColumn {
@@ -88,50 +114,23 @@
   flex-direction: column;
 }
 
-
-div {
-  vertical-align: top;
-}
-
-
-
-.loop {
-  color: black;
+.unrevealedUpgrade {
+  width: 340px;
+  height: 50px;
+  background-color: #1a1a1a;
+  margin: 5px;
+  padding: 0px 30px;
+  border-radius: 5px;
   font-weight: 500;
-  text-align: center;
-  position: absolute;
-  pointer-events: none;
-  text-align: center;
 }
 
-.textDivInLoop {
-  position: absolute;
-  color: white;
-  text-shadow: 0px 0px 5px black;
-}
+
 
 .upgrade{
   margin: 0px;
   padding: 5px;
   border: 0px;
-}
-
-.upgrade button {
   width: 400px;
-}
-
-.divInUpgrade {
-  display: flex;
-  pointer-events: none;
-  /* flex-direction: column; */
-}
-
-.imageInUpgrade {
-  pointer-events: none;
-  width: 100px;
-  height: 100px;
-  background-color: whitesmoke;
-  margin: 5px;
 }
 
 .upgrade p {
@@ -139,5 +138,57 @@ div {
   margin: 0px;
   border: 0px;
   
+}
+
+.upgrade button {
+  width: 400px;
+}
+
+.upgrade.upgradeIsDisabled button {
+  background-color: #1a1a1a;
+}
+
+.upgrade.upgradeIsEnabled button {
+  background-color: #062031;
+}
+
+
+.divInUpgrade {
+  display: flex;
+  pointer-events: none;
+}
+
+.upgrade p :not(.upgradeCost.upgradeTitle) {
+
   color: cornsilk;
+}
+
+.upgradeTitleAndInfo {
+  width: 400px;
+  /* background-color: black; */
+}
+
+.upgradeTitle {
+  font-size : 1.2em;
+  color: yellow;
+}
+
+.upgradeCost {
+  color: darkgreen;
+}
+
+.upgrade button {
+  width: 400px;
+}
+
+.imageInUpgrade {
+  /* position: relative; */
+}
+
+.imageInUpgrade img{
+  pointer-events: none;
+  width: 100px;
+  height: 100px;
+  background-color: whitesmoke;
+  margin: 5px;
 }

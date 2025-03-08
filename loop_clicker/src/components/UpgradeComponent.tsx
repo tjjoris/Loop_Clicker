@@ -1,5 +1,6 @@
 import { useUpgradeStore } from "../oop/upgrades/useUpgradeStore";
 import Upgrade from "../oop/upgrades/Upgrade";
+import Upgrader from "../oop/upgrades/Upgrader";
 import Safety_Scissors from "../../assets/Safety_Scissors.png"
 import Godzilla from "../../assets/Godzilla.png"
 import Tire_Fire1 from "../../assets/Tire_Fire1.png"
@@ -9,67 +10,92 @@ import numToStr from "../oop/numToStr";
  * this component displays current upgrade info, it is subscribed to the Upgrade object to get it.
  */
 
-export default function UpgradeComponent({upgrade, index}: {upgrade: Upgrade, index: number}) {
+export default function UpgradeComponent({upgrade, index, upgrader}: {upgrade: Upgrade, index: number, upgrader: Upgrader}) {
     const upgradeImages: string[] = [Safety_Scissors, Tire_Fire1, Godzilla, Godzilla, Godzilla, Godzilla, Godzilla];
     const state = useUpgradeStore(upgrade);
     const name: string = state.name;
     const description: string = state.description;
     const count: number = state.count;
     const countStr: string = numToStr(count);
-    const iterationAmount: number = state.iterationAmount;
-    const iterationAmountStr: string = numToStr(iterationAmount);
+    // const iterationAmount: number = state.iterationAmount;
+    // const iterationAmountStr: string = numToStr(iterationAmount);
     const cost: number = state.cost;
     const costStr: string = numToStr(cost);
     const iterationPerLvlStr: string = numToStr(upgrade.getIterationPerLevel());
-    let backgColour: string = "#1a1a1a";
+    let isUpgradeEnabledClass: string = "upgradeIsDisabled";
     if (state.canAfford) {
-        backgColour= "#494949";
+        isUpgradeEnabledClass = "upgradeIsEnabled";
     }
-
-    return (
-        <div
-            className = "upgrade"
-        >
-            <button 
-                onClick={() => {upgrade.incrementLevel();}}
-                style={{
-                    backgroundColor: backgColour
-                }}
+    if (upgrade.getReveal()) {
+        return (
+            <div
+                className = {`upgrade ${isUpgradeEnabledClass}`}
             >
-                <div
-                    className="divInUpgrade"
+                <button 
+                    disabled={ !state.canAfford }
+                    onClick={() => {
+                        upgrade.incrementLevel(); 
+                        upgrader.addLevel(upgrade);
+                        upgrader.reveal(upgrade.getIndex() + 1)
+                    }}
                 >
-                    {
-                        upgradeImages[index] != null ? (
-                            <img 
+                    <div
+                        className="divInUpgrade"
+                    >
+                        <div
                             className="imageInUpgrade"
-                            // draggable="false"
-                            src={upgradeImages[index]}
-                        />
-                        ): null
-                    }
-                    <div>
-                        <p>
-                            {name}
-                        </p>
-                        <p>
-                            {description}
-                        </p>
-                        <p>
-                            count: {countStr}
-                        </p>
-                        <p>
-                            cost: {costStr}
-                        </p>
-                        <p>
-                            iteration per level {iterationPerLvlStr}
-                        </p>
-                        <p>
-                            total iteration {iterationAmountStr}
-                        </p>
+                        >
+                            {
+                                upgradeImages[index] != null ? (
+                                    <img 
+                                    // className="imageInUpgrade"
+                                    // draggable="false"
+                                    src={upgradeImages[index]}
+                                />
+                                ): null
+                            }
+                            
+                            <p
+                                className="upgradeCost"
+                            >
+                                cost: {costStr}
+                            </p>
+                        </div>
+                        <div
+                            className="upgradeTitleAndInfo"
+                        >
+                            <p
+                                className="upgradeTitle"
+                            >
+                                {name}
+                            </p>
+                            <p>
+                                {description}
+                            </p>
+                            <p>
+                                count: {countStr}
+                            </p>
+                            <p>
+                                iteration per level {iterationPerLvlStr}
+                            </p>
+                        </div>
                     </div>
-                </div>
-            </button>
-        </div>
-    )
+                </button>
+            </div>
+        )
+    }
+    else {
+        return (
+
+            <div
+                className = "unrevealedUpgrade"
+            >
+                <p
+                    className="upgradeCost"
+                >
+                    cost: {costStr}
+                </p>
+            </div>
+        )
+    }
 }

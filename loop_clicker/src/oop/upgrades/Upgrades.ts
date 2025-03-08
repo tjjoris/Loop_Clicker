@@ -25,7 +25,7 @@ export default class Upgrades {
          upgradesData:{name: string; description: string; cost: number; incrementAmount: number; costMult: number}[] ) {
         this.scoreUpgradeObserver = scoreUpgradeObserver;
         upgradesData.forEach((upgradeData, index) => {
-            this.state[index] = new BasicRepeatableUpgrade(score, upgradeData);            
+            this.state[index] = new BasicRepeatableUpgrade(score, upgradeData, index);            
 
             this.scoreUpgradeObserver.subscribe(this.state[index]);
         })
