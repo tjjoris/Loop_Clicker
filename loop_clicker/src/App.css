@@ -196,7 +196,15 @@ div {
   position: absolute;
   left: 0;
   top: 0;
-  width: 100px;
-  height: 100px;
-  background-color: black;
+  width: 100vw;
+  height: 100vh;
+  background-color: #103510;
+}
+
+.gameEnd div {
+  margin: 10px;
+}
+
+.gameEnd div p {
+  margin: 0px 20px;
 }

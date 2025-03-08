@@ -11,21 +11,27 @@ export default function GameEndComponent ({gameEnd}: {gameEnd: GameEnd}) {
             <div
                 className="gameEnd"
             >
-                <p>
-                    Congratulations, you broke the game loop!
-                </p>
-                <h2>
-                    Credits:
-                </h2>
-                <p>
-                    Art: Kay
-                </p>
-                <p>
-                    Programming: Luke
-                </p>
-                <p>
-                    Direction: Jacob
-                </p>
+                <div>
+                    <h1>
+                        Congratulations, you broke the game loop!
+                    </h1>
+                    <br></br>
+                    <h2>
+                        Credits:
+                    </h2>
+                    <br></br>
+                    <p>
+                        Art: Kaidan Kosmos
+                    </p>
+                    <br></br>
+                    <p>
+                        Programming: Luke Johnson
+                    </p>
+                    <br></br>
+                    <p>
+                        Consultation: Jacob Johnson
+                    </p>
+                </div>
             </div> 
         );
     }
