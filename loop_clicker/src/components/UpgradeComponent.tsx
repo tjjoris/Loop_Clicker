@@ -23,8 +23,10 @@ export default function UpgradeComponent({upgrade, index, upgrader}: {upgrade: U
     const costStr: string = numToStr(cost);
     const iterationPerLvlStr: string = numToStr(upgrade.getIterationPerLevel());
     let backgColour: string = "#1a1a1a";
+    let isUpgradeEnabledClass: string = "upgradeIsDisabled";
     if (state.canAfford) {
         backgColour= "#494949";
+        isUpgradeEnabledClass = "upgradeIsEnabled";
     }
     if (upgrade.getReveal()) {
         return (
@@ -44,15 +46,25 @@ export default function UpgradeComponent({upgrade, index, upgrader}: {upgrade: U
                     <div
                         className="divInUpgrade"
                     >
-                        {
-                            upgradeImages[index] != null ? (
-                                <img 
-                                className="imageInUpgrade"
-                                // draggable="false"
-                                src={upgradeImages[index]}
-                            />
-                            ): null
-                        }
+                        <div
+                            className="imageInUpgrade"
+                        >
+                            {
+                                upgradeImages[index] != null ? (
+                                    <img 
+                                    // className="imageInUpgrade"
+                                    // draggable="false"
+                                    src={upgradeImages[index]}
+                                />
+                                ): null
+                            }
+                            
+                            <p
+                                className="upgradeCost"
+                            >
+                                cost: {costStr}
+                            </p>
+                        </div>
                         <div>
                             <p
                                 className="upgradeTitle"
@@ -64,11 +76,6 @@ export default function UpgradeComponent({upgrade, index, upgrader}: {upgrade: U
                             </p>
                             <p>
                                 count: {countStr}
-                            </p>
-                            <p
-                                className="upgradeCost"
-                            >
-                                cost: {costStr}
                             </p>
                             <p>
                                 iteration per level {iterationPerLvlStr}
@@ -91,7 +98,7 @@ export default function UpgradeComponent({upgrade, index, upgrader}: {upgrade: U
                 <p
                     className="upgradeCost"
                 >
-                    {costStr}
+                    cost: {costStr}
                 </p>
             </div>
         )

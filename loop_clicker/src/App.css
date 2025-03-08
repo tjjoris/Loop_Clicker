@@ -115,8 +115,9 @@ div {
   height: 50px;
   background-color: #1a1a1a;
   margin: 5px;
-  padding: 0px 5px;
+  padding: 0px 30px;
   border-radius: 5px;
+  font-weight: 500;
 }
 
 
@@ -125,6 +126,7 @@ div {
   margin: 0px;
   padding: 5px;
   border: 0px;
+  width: 400px;
 }
 
 .upgrade p {
@@ -156,9 +158,14 @@ div {
   display: flex;
   pointer-events: none;
   /* flex-direction: column; */
+  /* width: 400px; */
 }
 
 .imageInUpgrade {
+  /* position: relative; */
+}
+
+.imageInUpgrade img{
   pointer-events: none;
   width: 100px;
   height: 100px;

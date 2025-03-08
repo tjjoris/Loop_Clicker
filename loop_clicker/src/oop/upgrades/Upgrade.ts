@@ -62,10 +62,22 @@ export default class Upgrade {
             let cost = this.state.cost * this.costMult
             this.state = {name: this.state.name, description: this.state.description, cost: cost,
                 iterationAmount: this.state.iterationAmount + this.iterationIncrease, count: this.state.count + 1,
-            canAfford: this.score.isAfford(cost), isReveal: this.state.isReveal};
+            canAfford: this.canAfford(cost), isReveal: this.state.isReveal};
             this.score.addIncrementAmount(this.iterationIncrease);
             this.notify();
         };
+    }
+
+    /**
+     * to check if it can be afforded first check if its revealed then if it 
+     * can be afforded by checking score.
+     * @returns 
+     */
+    private canAfford(cost: number) {
+        if (!this.isRevealed) {
+            return false;
+        }
+        return this.score.isAfford(cost);
     }
 
     public subscribe(listener: Listener) { 
