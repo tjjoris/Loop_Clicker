@@ -26,55 +26,68 @@ export default function UpgradeComponent({upgrade, index, upgrader}: {upgrade: U
     if (state.canAfford) {
         backgColour= "#494949";
     }
-
-    return (
-        <div
-            className = "upgrade"
-        >
-            <button 
-                onClick={() => {
-                    upgrade.incrementLevel(); 
-                    upgrader.addLevel(upgrade);
-                    upgrader.reveal(upgrade.getIndex() + 1)
-                }}
-                style={{
-                    backgroundColor: backgColour
-                }}
+    if (upgrade.getReveal()) {
+        return (
+            <div
+                className = "upgrade"
             >
-                <div
-                    className="divInUpgrade"
+                <button 
+                    onClick={() => {
+                        upgrade.incrementLevel(); 
+                        upgrader.addLevel(upgrade);
+                        upgrader.reveal(upgrade.getIndex() + 1)
+                    }}
+                    style={{
+                        backgroundColor: backgColour
+                    }}
                 >
-                    {
-                        upgradeImages[index] != null ? (
-                            <img 
-                            className="imageInUpgrade"
-                            // draggable="false"
-                            src={upgradeImages[index]}
-                        />
-                        ): null
-                    }
-                    <div>
-                        <p>
-                            {name}
-                        </p>
-                        <p>
-                            {description}
-                        </p>
-                        <p>
-                            count: {countStr}
-                        </p>
-                        <p>
-                            cost: {costStr}
-                        </p>
-                        <p>
-                            iteration per level {iterationPerLvlStr}
-                        </p>
-                        <p>
-                            total iteration {iterationAmountStr}
-                        </p>
+                    <div
+                        className="divInUpgrade"
+                    >
+                        {
+                            upgradeImages[index] != null ? (
+                                <img 
+                                className="imageInUpgrade"
+                                // draggable="false"
+                                src={upgradeImages[index]}
+                            />
+                            ): null
+                        }
+                        <div>
+                            <p>
+                                {name}
+                            </p>
+                            <p>
+                                {description}
+                            </p>
+                            <p>
+                                count: {countStr}
+                            </p>
+                            <p>
+                                cost: {costStr}
+                            </p>
+                            <p>
+                                iteration per level {iterationPerLvlStr}
+                            </p>
+                            <p>
+                                total iteration {iterationAmountStr}
+                            </p>
+                        </div>
                     </div>
-                </div>
-            </button>
-        </div>
-    )
+                </button>
+            </div>
+        )
+    }
+    else {
+        return (
+
+            <div
+                className = "unrevealedUpgrade"
+            >
+                <p>
+                    {costStr}
+                </p>
+            </div>
+        )
+    }
 }

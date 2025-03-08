@@ -88,6 +88,15 @@
   flex-direction: column;
 }
 
+.unrevealedUpgrade {
+  width: 400px;
+  height: 50px;
+  background-color: #1a1a1a;
+  margin: 5px;
+  padding: 0px 5px;
+  border-radius: 5px;
+}
+
 
 div {
   vertical-align: top;
