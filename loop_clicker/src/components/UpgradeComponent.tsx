@@ -32,6 +32,7 @@ export default function UpgradeComponent({upgrade, index, upgrader}: {upgrade: U
                 className = {`upgrade ${isUpgradeEnabledClass}`}
             >
                 <button 
+                    disabled={ !state.canAfford }
                     onClick={() => {
                         upgrade.incrementLevel(); 
                         upgrader.addLevel(upgrade);
