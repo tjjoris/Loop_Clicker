@@ -15,6 +15,7 @@ import LoopBunch from './oop/loop/LoopBunch'
 import Data from './Data.json'
 import { useEffect } from 'react'
 import Upgrader from './oop/upgrades/Upgrader'
+import GameEnd from './oop/game/GameEnd'
 
 function App() {
   const dataRef = useRef(Data);
@@ -31,6 +32,8 @@ function App() {
   const upgrades = upgradesRef.current;
   const upgraderRef = useRef(new Upgrader(upgrades.getState()));
   const upgrader = upgraderRef.current;
+  const gameEndRef = useRef(new GameEnd());
+  const gameEnd = gameEndRef.current;
   const loopHandlerState: Loop | null = useLoopHandlerStore(loopHandler);
   console.log("app render");
 
@@ -75,7 +78,7 @@ function App() {
           </div>
           
         </div>
-        <GameEndComponent/>
+        <GameEndComponent gameEnd = {gameEnd}/>
     </div>
   )
 }
