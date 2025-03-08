@@ -3,6 +3,7 @@ import Upgrade from "../oop/upgrades/Upgrade";
 import Safety_Scissors from "../../assets/Safety_Scissors.png"
 import Godzilla from "../../assets/Godzilla.png"
 import Tire_Fire1 from "../../assets/Tire_Fire1.png"
+import numToStr from "../oop/numToStr";
 
 /**
  * this component displays current upgrade info, it is subscribed to the Upgrade object to get it.
@@ -14,10 +15,12 @@ export default function UpgradeComponent({upgrade, index}: {upgrade: Upgrade, in
     const name: string = state.name;
     const description: string = state.description;
     const count: number = state.count;
+    const countStr: string = numToStr(count);
     const iterationAmount: number = state.iterationAmount;
-    const iterationAmountStr: string = iterationAmount.toFixed(2);
+    const iterationAmountStr: string = numToStr(iterationAmount);
     const cost: number = state.cost;
-    const costStr: string = cost.toFixed(2);
+    const costStr: string = numToStr(cost);
+    const iterationPerLvlStr: string = numToStr(upgrade.getIterationPerLevel());
     let backgColour: string = "grey"
     if (state.canAfford) {
         backgColour= "#1a1a1a"
@@ -53,13 +56,13 @@ export default function UpgradeComponent({upgrade, index}: {upgrade: Upgrade, in
                             {description}
                         </p>
                         <p>
-                            count: {count}
+                            count: {countStr}
                         </p>
                         <p>
                             cost: {costStr}
                         </p>
                         <p>
-                            iteration per level {upgrade.getIterationPerLevel()}
+                            iteration per level {iterationPerLvlStr}
                         </p>
                         <p>
                             total iteration {iterationAmountStr}
