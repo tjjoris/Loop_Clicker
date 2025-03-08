@@ -7,12 +7,13 @@ import Tire_Fire from "../../assets/Tire_Firev2.png"
 import Blackhole from "../../assets/Blackhole.png"
 import Bad_Programmer from "../../assets/Bad_Programmer.png"
 import numToStr from "../oop/numToStr";
+import GameEnd from "../oop/game/GameEnd";
 
 /**
  * this component displays current upgrade info, it is subscribed to the Upgrade object to get it.
  */
 
-export default function UpgradeComponent({upgrade, index, upgrader}: {upgrade: Upgrade, index: number, upgrader: Upgrader}) {
+export default function UpgradeComponent({upgrade, index, upgrader, upgradesLength, gameEnd}: {upgrade: Upgrade, index: number, upgrader: Upgrader, upgradesLength: number, gameEnd: GameEnd}) {
     const upgradeImages: string[] = [Super_Scissors, Tire_Fire, Godzilla, Godzilla, Godzilla, Blackhole, Bad_Programmer];
     const state = useUpgradeStore(upgrade);
     const name: string = state.name;
@@ -25,6 +26,17 @@ export default function UpgradeComponent({upgrade, index, upgrader}: {upgrade: U
     const costStr: string = numToStr(cost);
     const iterationPerLvlStr: string = numToStr(upgrade.getIterationPerLevel());
     let isUpgradeEnabledClass: string = "upgradeIsDisabled";
+    
+    const clickFunc = () => {
+        console.log("upgrade clicked");
+        upgrade.incrementLevel(); 
+        upgrader.addLevel(upgrade);
+        upgrader.reveal(upgrade.getIndex() + 1);
+        if (upgrade.getIndex() >= 2) {
+            gameEnd.endTheGameIfLastUpgrade();//end the game if this is last upgrade.
+        }
+    }
+    
     if (state.canAfford) {
         isUpgradeEnabledClass = "upgradeIsEnabled";
     }
@@ -35,11 +47,7 @@ export default function UpgradeComponent({upgrade, index, upgrader}: {upgrade: U
             >
                 <button 
                     disabled={ !state.canAfford }
-                    onClick={() => {
-                        upgrade.incrementLevel(); 
-                        upgrader.addLevel(upgrade);
-                        upgrader.reveal(upgrade.getIndex() + 1)
-                    }}
+                    onClick={clickFunc }
                 >
                     <div
                         className="divInUpgrade"

@@ -22,6 +22,7 @@ export default class Score {
     constructor(loopHandler: LoopHandler, scoreUpgradeObserver: ScoreUpgradeObserver) {
         this.loopHandler = loopHandler;
         this.scoreUpgradeObserver = scoreUpgradeObserver;
+        console.log("score constructor called");
         this.startInterval(1000/30);
         // this.startAnimationLoop();
     }

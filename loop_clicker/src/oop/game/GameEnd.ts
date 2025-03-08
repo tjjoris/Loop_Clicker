@@ -16,7 +16,7 @@ export default class GameEnd {
             }
     }
 
-    public endTheGame() {
+    public endTheGameIfLastUpgrade() {
         this.isGameEnded = true;
         this.notify();
     }
@@ -28,6 +28,4 @@ export default class GameEnd {
     private notify() {
         this.listeners.forEach((listener) => listener());
     }
-
-
 }
