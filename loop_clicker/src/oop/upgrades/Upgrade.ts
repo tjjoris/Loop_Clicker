@@ -15,8 +15,10 @@ export default class Upgrade {
         protected iterationPerLevel: number;
         private listeners: Listener[] = [];
         private isAfford : boolean = false;
+        private index: number;
+        private isRevealed: boolean;
 
-        constructor (score: Score, upgradesData: {name: string; description: string; cost: number; incrementAmount: number; costMult: number}) {
+        constructor (score: Score, upgradesData: {name: string; description: string; cost: number; incrementAmount: number; costMult: number}, index: number) {
             this.score = score;
             this.iterationIncrease = 0;
             this.costIncrease = 0;
@@ -24,6 +26,8 @@ export default class Upgrade {
             this.iterationPerLevel = 0;
             this.state = {name: "scissors", description: "super scissors", cost: 0, iterationAmount: 0, count: 0, canAfford: false};
             upgradesData;
+            this.index = index;
+            this.isRevealed = false;
         }
 
         public getState() {
