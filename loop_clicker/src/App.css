@@ -60,7 +60,7 @@
 
 .score {
     position: absolute;
-    width: 500px;
+    width: 300px;
     /* background-color: black; */
 }
 
@@ -88,17 +88,6 @@
   flex-direction: column;
 }
 
-.divInUpgrade {
-  display: flex;
-  fles-direction: column;
-}
-
-.imageInUpgrade {
-  width: 100px;
-  height: 100px;
-  background-color: white;
-  margin: 5px;
-}
 
 div {
   vertical-align: top;
@@ -117,12 +106,32 @@ div {
 
 .textDivInLoop {
   position: absolute;
+  color: white;
+  text-shadow: 0px 0px 5px black;
 }
 
 .upgrade{
   margin: 0px;
   padding: 5px;
   border: 0px;
+}
+
+.upgrade button {
+  width: 400px;
+}
+
+.divInUpgrade {
+  display: flex;
+  pointer-events: none;
+  /* flex-direction: column; */
+}
+
+.imageInUpgrade {
+  pointer-events: none;
+  width: 100px;
+  height: 100px;
+  background-color: whitesmoke;
+  margin: 5px;
 }
 
 .upgrade p {

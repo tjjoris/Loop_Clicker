@@ -60,7 +60,7 @@ export default class Score {
 
     public addIncrementAmount (amount: number) {
         this.state = {score: this.state.score, incrementAmount: this.state.incrementAmount + amount, counter: this.state.counter};
-        this.amountPerClick = 1 + (this.state.incrementAmount )
+        this.amountPerClick = 1 + (this.state.incrementAmount * 0.2)
         this.notify();
     }
 
