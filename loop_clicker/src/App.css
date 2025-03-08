@@ -136,6 +136,18 @@ div {
   
 }
 
+.upgrade button {
+  width: 400px;
+}
+
+.upgrade.upgradeIsDisabled button {
+  background-color: #1a1a1a;
+}
+
+.upgrade.upgradeIsEnabled button {
+  background-color: #062031;
+}
+
 .upgrade p :not(.upgradeCost.upgradeTitle) {
 
   color: cornsilk;

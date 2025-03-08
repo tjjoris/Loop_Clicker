@@ -22,25 +22,20 @@ export default function UpgradeComponent({upgrade, index, upgrader}: {upgrade: U
     const cost: number = state.cost;
     const costStr: string = numToStr(cost);
     const iterationPerLvlStr: string = numToStr(upgrade.getIterationPerLevel());
-    let backgColour: string = "#1a1a1a";
     let isUpgradeEnabledClass: string = "upgradeIsDisabled";
     if (state.canAfford) {
-        backgColour= "#494949";
         isUpgradeEnabledClass = "upgradeIsEnabled";
     }
     if (upgrade.getReveal()) {
         return (
             <div
-                className = "upgrade"
+                className = {`upgrade ${isUpgradeEnabledClass}`}
             >
                 <button 
                     onClick={() => {
                         upgrade.incrementLevel(); 
                         upgrader.addLevel(upgrade);
                         upgrader.reveal(upgrade.getIndex() + 1)
-                    }}
-                    style={{
-                        backgroundColor: backgColour
                     }}
                 >
                     <div
