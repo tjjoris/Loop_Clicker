@@ -82,6 +82,12 @@ export default class Score {
         } , rate);
     }
 
+    public stopInterval() {
+        if (this.intervalId != null) {
+            clearInterval(this.intervalId);
+        }
+    }
+
     public isAfford(amount: number): boolean {
         if (amount <= this.state.score) {
             return true;

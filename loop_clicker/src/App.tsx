@@ -57,7 +57,7 @@ function App() {
           <div
             className={`upgradesColumn ${reactive}`}
           >
-            <UpgradesComponent upgrades={upgrades} upgrader= {upgrader} gameEnd={gameEnd}/>
+            <UpgradesComponent upgrades={upgrades} upgrader= {upgrader} gameEnd={gameEnd} score={scoreObject}/>
           </div>
 
 

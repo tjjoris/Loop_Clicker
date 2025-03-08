@@ -8,12 +8,13 @@ import Blackhole from "../../assets/Blackhole.png"
 import Bad_Programmer from "../../assets/Bad_Programmer.png"
 import numToStr from "../oop/numToStr";
 import GameEnd from "../oop/game/GameEnd";
+import Score from "../oop/game/Score";
 
 /**
  * this component displays current upgrade info, it is subscribed to the Upgrade object to get it.
  */
 
-export default function UpgradeComponent({upgrade, index, upgrader, upgradesLength, gameEnd}: {upgrade: Upgrade, index: number, upgrader: Upgrader, upgradesLength: number, gameEnd: GameEnd}) {
+export default function UpgradeComponent({upgrade, index, upgrader, upgradesLength, gameEnd, score}: {upgrade: Upgrade, index: number, upgrader: Upgrader, upgradesLength: number, gameEnd: GameEnd, score: Score}) {
     const upgradeImages: string[] = [Super_Scissors, Tire_Fire, Godzilla, Godzilla, Godzilla, Blackhole, Bad_Programmer];
     const state = useUpgradeStore(upgrade);
     const name: string = state.name;
@@ -32,8 +33,10 @@ export default function UpgradeComponent({upgrade, index, upgrader, upgradesLeng
         upgrade.incrementLevel(); 
         upgrader.addLevel(upgrade);
         upgrader.reveal(upgrade.getIndex() + 1);
-        if (upgrade.getIndex() >= 2) {
+        if (upgrade.getIndex() >= 1) {
             gameEnd.endTheGameIfLastUpgrade();//end the game if this is last upgrade.
+            score.stopInterval();
+            
         }
     }
     
