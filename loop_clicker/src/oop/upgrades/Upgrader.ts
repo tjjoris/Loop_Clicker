@@ -9,7 +9,7 @@ export default class Upgrader {
     }
 
     public addLevel(upgrade: Upgrade) {
-
+        upgrade;
     }
 
     public reveal(index: number) {

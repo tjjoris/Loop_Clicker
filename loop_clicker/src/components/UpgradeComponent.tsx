@@ -17,8 +17,8 @@ export default function UpgradeComponent({upgrade, index, upgrader}: {upgrade: U
     const description: string = state.description;
     const count: number = state.count;
     const countStr: string = numToStr(count);
-    const iterationAmount: number = state.iterationAmount;
-    const iterationAmountStr: string = numToStr(iterationAmount);
+    // const iterationAmount: number = state.iterationAmount;
+    // const iterationAmountStr: string = numToStr(iterationAmount);
     const cost: number = state.cost;
     const costStr: string = numToStr(cost);
     const iterationPerLvlStr: string = numToStr(upgrade.getIterationPerLevel());

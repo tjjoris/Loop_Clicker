@@ -25,7 +25,7 @@
             },  
             {
                 "name": "Kaiju",
-                "description": "Each giant monster wreathes havoc on rollercoasters in it's own unique way.",
+                "description": "Each giant monster wreaks havoc on rollercoasters in it's own unique way.",
                 "cost": 4096,
                 "incrementAmount": 256,
                 "costMult": 1.4
@@ -39,7 +39,7 @@
             },
             {
                 "name": "Black Hole",
-                "description": "Insert yo momma joke here.",
+                "description": "\"Yo momma so fat...\"",
                 "cost": 262144,
                 "incrementAmount": 16384,
                 "costMult": 1.4
