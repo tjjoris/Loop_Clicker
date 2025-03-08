@@ -21,9 +21,9 @@ export default function UpgradeComponent({upgrade, index}: {upgrade: Upgrade, in
     const cost: number = state.cost;
     const costStr: string = numToStr(cost);
     const iterationPerLvlStr: string = numToStr(upgrade.getIterationPerLevel());
-    let backgColour: string = "grey"
+    let backgColour: string = "#1a1a1a";
     if (state.canAfford) {
-        backgColour= "#1a1a1a"
+        backgColour= "#494949";
     }
 
     return (
