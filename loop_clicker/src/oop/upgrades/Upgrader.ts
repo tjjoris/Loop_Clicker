@@ -6,4 +6,12 @@ export default class Upgrader {
     constructor (upgrades: Upgrade[]) {
         this.upgrades = upgrades;
     }
+
+    public addLevel(upgrade: Upgrade) {
+
+    }
+
+    public reveal(index: number) {
+        this.upgrades[index].reveal();
+    }
 }

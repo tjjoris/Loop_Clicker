@@ -38,6 +38,18 @@ export default class Upgrade {
             return this.iterationPerLevel;
         }
 
+        public reveal() {
+            this.isRevealed = true;
+        }
+
+        public getReveal() {
+            return this.isRevealed;
+        }
+
+        public getIndex() {
+            return this.index;
+        }
+
     public incrementLevel() {
         if (this.score.isAfford(this.state.cost)) {
             this.isAfford = this.score.isAfford(this.state.cost);

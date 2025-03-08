@@ -1,5 +1,6 @@
 import { useUpgradeStore } from "../oop/upgrades/useUpgradeStore";
 import Upgrade from "../oop/upgrades/Upgrade";
+import Upgrader from "../oop/upgrades/Upgrader";
 import Safety_Scissors from "../../assets/Safety_Scissors.png"
 import Godzilla from "../../assets/Godzilla.png"
 import Tire_Fire1 from "../../assets/Tire_Fire1.png"
@@ -9,7 +10,7 @@ import numToStr from "../oop/numToStr";
  * this component displays current upgrade info, it is subscribed to the Upgrade object to get it.
  */
 
-export default function UpgradeComponent({upgrade, index}: {upgrade: Upgrade, index: number}) {
+export default function UpgradeComponent({upgrade, index, upgrader}: {upgrade: Upgrade, index: number, upgrader: Upgrader}) {
     const upgradeImages: string[] = [Safety_Scissors, Tire_Fire1, Godzilla, Godzilla, Godzilla, Godzilla, Godzilla];
     const state = useUpgradeStore(upgrade);
     const name: string = state.name;
@@ -31,7 +32,11 @@ export default function UpgradeComponent({upgrade, index}: {upgrade: Upgrade, in
             className = "upgrade"
         >
             <button 
-                onClick={() => {upgrade.incrementLevel();}}
+                onClick={() => {
+                    upgrade.incrementLevel(); 
+                    upgrader.addLevel(upgrade);
+                    upgrader.reveal(upgrade.getIndex() + 1)
+                }}
                 style={{
                     backgroundColor: backgColour
                 }}
