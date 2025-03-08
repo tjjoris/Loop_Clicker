@@ -12,8 +12,8 @@ export default function LoopBunchComponent({score, loopBunch}:{score: Score, loo
     const scoreObject = score;
     let left : number = 100;
     let top : number = 100;
-    let width: number = 200;
-    let height: number = 200;
+    // let width: number = 200;
+    // let height: number = 200;
     const amountPerClick = score.getAmountPerClick();
     
     console.log("loop bunch re-rendered");
@@ -44,8 +44,8 @@ export default function LoopBunchComponent({score, loopBunch}:{score: Score, loo
                 left: `${left}px`,
                 top: `${top}px`,
                 // moved position absolute into App.css
-                width: `${width}px`,
-                height: `${height}px`
+                // width: `${width}px`,
+                // height: `${height}px`
             }}
             />
             {
