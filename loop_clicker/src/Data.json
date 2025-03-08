@@ -18,7 +18,7 @@
             },       
             {
                 "name": "Savvy Lawyers",
-                "description": "Finding and breaking Contract Loopholes is what thier good at. Noone said they were saints.",
+                "description": "Finding and breaking Contract Loopholes is what thier good at. No one said they were saints.",
                 "cost": 512,
                 "incrementAmount": 32,
                 "costMult": 1.4

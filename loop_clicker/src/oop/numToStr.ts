@@ -32,8 +32,8 @@ export default function numToStr(num: number): string {
         let numThousandths: number[] = [numBefore];
         let thousandthsReport : string = "";
         if (num >= 1000) {
-            numThousandths[0] = num % (1000 * Math.floor(num / 1000)) ; //the hundredths decimals.
-            numThousandths[1] = (num - numThousandths[0]) / 1000; //the thousandths decimals.
+            numThousandths[0] = Math.floor(num % (1000 * Math.floor(num / 1000))) ; //the hundredths decimals.
+            numThousandths[1] = Math.floor((num - numThousandths[0]) / 1000); //the thousandths decimals.
             let hundredthsStr: string = numThousandths[0].toString();//convert the hundredths to a string.
             if (numThousandths[0] < 10) {
                 hundredthsStr = "00" + hundredthsStr;
