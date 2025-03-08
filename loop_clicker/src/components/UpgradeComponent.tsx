@@ -61,7 +61,9 @@ export default function UpgradeComponent({upgrade, index, upgrader}: {upgrade: U
                                 cost: {costStr}
                             </p>
                         </div>
-                        <div>
+                        <div
+                            className="upgradeTitleAndInfo"
+                        >
                             <p
                                 className="upgradeTitle"
                             >
@@ -75,9 +77,6 @@ export default function UpgradeComponent({upgrade, index, upgrader}: {upgrade: U
                             </p>
                             <p>
                                 iteration per level {iterationPerLvlStr}
-                            </p>
-                            <p>
-                                total iteration {iterationAmountStr}
                             </p>
                         </div>
                     </div>

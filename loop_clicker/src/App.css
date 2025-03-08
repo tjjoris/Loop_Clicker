@@ -111,7 +111,7 @@ div {
 }
 
 .unrevealedUpgrade {
-  width: 400px;
+  width: 340px;
   height: 50px;
   background-color: #1a1a1a;
   margin: 5px;
@@ -148,9 +148,20 @@ div {
   background-color: #062031;
 }
 
+
+.divInUpgrade {
+  display: flex;
+  pointer-events: none;
+}
+
 .upgrade p :not(.upgradeCost.upgradeTitle) {
 
   color: cornsilk;
+}
+
+.upgradeTitleAndInfo {
+  width: 400px;
+  /* background-color: black; */
 }
 
 .upgradeTitle {
@@ -164,13 +175,6 @@ div {
 
 .upgrade button {
   width: 400px;
-}
-
-.divInUpgrade {
-  display: flex;
-  pointer-events: none;
-  /* flex-direction: column; */
-  /* width: 400px; */
 }
 
 .imageInUpgrade {
