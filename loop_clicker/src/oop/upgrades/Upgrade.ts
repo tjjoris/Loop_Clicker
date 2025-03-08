@@ -41,6 +41,7 @@ export default class Upgrade {
         public reveal() {
             this.isRevealed = true;
             this.state = {name: this.state.name, description: this.state.description, cost: this.state.cost, iterationAmount: this.state.iterationAmount, count: this.state.count, canAfford: this.state.canAfford, isReveal: true};
+            this.notify();
         }
 
         public getReveal() {
