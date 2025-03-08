@@ -30,14 +30,16 @@ export default function UpgradeComponent({upgrade, index, upgrader, upgradesLeng
     
     const clickFunc = () => {
         console.log("upgrade clicked");
-        upgrade.incrementLevel(); 
-        upgrader.addLevel(upgrade);
-        upgrader.reveal(upgrade.getIndex() + 1);
-        if (upgrade.getIndex() >= 1) {
+        console.log("upgrades length " + upgradesLength);
+        if (upgrade.getIndex() >= upgradesLength - 1) {
             gameEnd.endTheGameIfLastUpgrade();//end the game if this is last upgrade.
             score.stopInterval();
             
         }
+        
+        upgrade.incrementLevel(); 
+        upgrader.addLevel(upgrade);
+        upgrader.reveal(upgrade.getIndex() + 1);
     }
     
     if (state.canAfford) {
