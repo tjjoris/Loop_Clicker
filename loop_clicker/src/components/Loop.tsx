@@ -2,6 +2,7 @@
 import broken_elastic_bit_01 from "/assets/broken_elastic_bit_01.png"
 import { useLoopStore } from "../oop/loop/useLoopStore";
 import Loop from "../oop/loop/Loop";
+import numToStr from "../oop/numToStr";
 
 
 export default function LoopComponent ({x, loop, incrementAmount: amountPerClick}: {x: number, loop: Loop, incrementAmount: number}) {
@@ -12,7 +13,7 @@ export default function LoopComponent ({x, loop, incrementAmount: amountPerClick
     const left: number = x - (width / 2);
 
     // let incrementAmountPerClick: number = (incrementAmount * 30) + 1;
-    let incrementAmountStr: string = amountPerClick.toFixed(2);
+    let incrementAmountStr: string = numToStr(amountPerClick);
 
     return (
         <>
