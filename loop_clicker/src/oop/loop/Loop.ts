@@ -8,7 +8,7 @@ export default class Loop {
     private x: number;
     private y: number;
     private listners: Listener[] = [];
-    private maxLoopSprites: number = 2;
+    private maxLoopSprites: number = 5;
     private loopSpriteIndex: number = 0;
     private rotationDeg: number = 0;
 
