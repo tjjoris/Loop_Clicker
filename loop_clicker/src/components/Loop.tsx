@@ -1,8 +1,10 @@
 // import elastic_placeholder from "/assets/elastic_placeholder.png"
 import broken_elastic_bit_01 from "/assets/broken_elastic_bit_01.png"
+import broken_elastic_bit_02 from "/assets/Broken_Elastic_Bit_02.png"
 import { useLoopStore } from "../oop/loop/useLoopStore";
 import Loop from "../oop/loop/Loop";
 import numToStr from "../oop/numToStr";
+import { useRef } from "react";
 
 
 export default function LoopComponent ({x, loop, incrementAmount: amountPerClick}: {x: number, loop: Loop, incrementAmount: number}) {
@@ -11,7 +13,9 @@ export default function LoopComponent ({x, loop, incrementAmount: amountPerClick
     let height: number = 100;
     const top: number = useLoopStore(loop) - (height / 2);
     const left: number = x - (width / 2);
-
+    const brokenElasticSprites : string[] = [broken_elastic_bit_01, broken_elastic_bit_02];
+    // const spriteIndexRef = (useRef<number>(Math.floor(Math.random() * brokenElasticSprites.length)));
+    // const spriteIndex = spriteIndexRef.current;
     // let incrementAmountPerClick: number = (incrementAmount * 30) + 1;
     let incrementAmountStr: string = numToStr(amountPerClick);
 
@@ -28,7 +32,7 @@ export default function LoopComponent ({x, loop, incrementAmount: amountPerClick
                 }}
             >
                 <img 
-                src={broken_elastic_bit_01}
+                src={brokenElasticSprites[loop.getLoopSpriteIndex()]}
                 draggable="false"
                 style={{
                     width: `${width}px`,
