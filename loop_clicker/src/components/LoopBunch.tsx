@@ -17,6 +17,7 @@ export default function LoopBunchComponent({score, loopBunch}:{score: Score, loo
     // let width: number = 200;
     // let height: number = 200;
     const amountPerClick = score.getAmountPerClick();
+    const scale = state.scale;
     
     console.log("loop bunch re-rendered");
     // const clickToAddLoop = ((event: React.MouseEvent) => {
@@ -34,6 +35,7 @@ export default function LoopBunchComponent({score, loopBunch}:{score: Score, loo
         console.log("click event");
         scoreObject.incrementScore(amountPerClick);
         loopBunch.clickCreateLoop(event.clientX, event.clientY);
+        loopBunch.startClickedAnimation();
     })
     return (
         <>
@@ -51,6 +53,7 @@ export default function LoopBunchComponent({score, loopBunch}:{score: Score, loo
                 // height: `${height}px`
             }}
             />
+            scale: {scale}
             {
                 loops.map((clickedLoop, index) => {
                     return (

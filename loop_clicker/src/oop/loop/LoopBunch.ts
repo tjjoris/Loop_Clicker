@@ -1,4 +1,5 @@
 import Loop from "./Loop";
+import lerp from "../lerp";
 
 type Listener = () => void;
 
@@ -7,6 +8,10 @@ export default class LoopBunch {
     private listners: Listener[] = [];
     private intervalId: number | null = null;
     private rotationRate: number = 0.02;
+    private scaleIncreaseStart : number = 0.1;
+    private scaleIncreaseRate: number = 0;
+    private scaleMin: number = 1;
+    private scaleMax : number = 1.2;
 
     constructor() {
         this.startInterval();
@@ -26,10 +31,16 @@ export default class LoopBunch {
         if (tempRotation > 360) {
             tempRotation = 0;
         }
+        let tempScale = this.state.scale + this.scaleIncreaseRate;
+
         // this.state.rotation = tempRotation;
-        this.state = { ...this.state, rotation: tempRotation};
+        this.state = { ...this.state, rotation: tempRotation, scale: tempScale};
         this.notify();
         // console.log("loop bunch rotation " + this.state.rotation);
+    }
+
+    public startClickedAnimation() {
+        this.scaleIncreaseRate = this.scaleIncreaseStart;
     }
 
     public clickCreateLoop(x: number, y:number) {
