@@ -1,3 +1,7 @@
+import Luke from "../../assets/Luke.png"
+import Kay from "../../assets/Kay.png"
+import Jake from "../../assets/Jake.png"
+
 import GameEnd from "../oop/game/GameEnd";
 import { UseGameEndStore } from "../oop/game/UseGameEndStore";
 
