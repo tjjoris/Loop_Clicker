@@ -12,6 +12,9 @@ export default class LoopBunch {
     private scaleIncreaseRate: number = 0;
     private scaleMin: number = 1;
     private scaleMax : number = 1.2;
+    private scaleRatio: number = 0;
+    private scaleAcceleration: number = 0;
+    private scaleAccelerationToSet: number = 0.01;
 
     constructor() {
         this.startInterval();
@@ -31,8 +34,9 @@ export default class LoopBunch {
         if (tempRotation > 360) {
             tempRotation = 0;
         }
-        let tempScale = this.state.scale + this.scaleIncreaseRate;
-
+        this.scaleAcceleration 
+        // this.scaleRatio += Math.max(this.scaleRatio + 0.1, 1);
+        let tempScale = lerp(this.scaleMin, this.scaleMax, 0.001);
         // this.state.rotation = tempRotation;
         this.state = { ...this.state, rotation: tempRotation, scale: tempScale};
         this.notify();
@@ -41,6 +45,7 @@ export default class LoopBunch {
 
     public startClickedAnimation() {
         this.scaleIncreaseRate = this.scaleIncreaseStart;
+        this.scaleAcceleration = this.scaleAccelerationToSet;
     }
 
     public clickCreateLoop(x: number, y:number) {
