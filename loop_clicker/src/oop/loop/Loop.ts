@@ -10,12 +10,14 @@ export default class Loop {
     private listners: Listener[] = [];
     private maxLoopSprites: number = 2;
     private loopSpriteIndex: number = 0;
+    private rotationDeg: number = 0;
 
     constructor(x: number, y: number) {
         this.x = x;
         this.y = y;
         this.startInterval(30);
         this.loopSpriteIndex = Math.floor(Math.random() * this.maxLoopSprites);
+        this.rotationDeg = Math.floor(Math.random() * 360);
     }
     startInterval(interval: number) {
         setInterval(() => {
@@ -34,6 +36,10 @@ export default class Loop {
 
     public getY() {
         return this.y;
+    }
+
+    public getRotationDeg() {
+        return this.rotationDeg;
     }
 
     public setMaxLoopSprites(value: number) {

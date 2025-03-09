@@ -14,9 +14,7 @@ export default function LoopComponent ({x, loop, incrementAmount: amountPerClick
     const top: number = useLoopStore(loop) - (height / 2);
     const left: number = x - (width / 2);
     const brokenElasticSprites : string[] = [broken_elastic_bit_01, broken_elastic_bit_02];
-    // const spriteIndexRef = (useRef<number>(Math.floor(Math.random() * brokenElasticSprites.length)));
-    // const spriteIndex = spriteIndexRef.current;
-    // let incrementAmountPerClick: number = (incrementAmount * 30) + 1;
+    const rotationDeg: number = loop.getRotationDeg();
     let incrementAmountStr: string = numToStr(amountPerClick);
 
     return (
@@ -37,6 +35,7 @@ export default function LoopComponent ({x, loop, incrementAmount: amountPerClick
                 style={{
                     width: `${width}px`,
                     height: `${height}px`,
+                    transform: `rotate(${rotationDeg}deg)`
                 }}
                 />
                 <div
