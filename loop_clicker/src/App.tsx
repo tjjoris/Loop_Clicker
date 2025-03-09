@@ -47,38 +47,42 @@ function App() {
   }, [loopHandlerState])
 
   return (
-    <div 
-      className='mainBoard'
-    >
-      <div
-        className= {`loopsAndUpgrades ${reactive}`}
-        >
-
-          <div
-            className={`upgradesColumn ${reactive}`}
+    <div>
+      
+      <GameEndComponent gameEnd = {gameEnd}/>
+      <div 
+        className='mainBoard'
+      >
+        <div
+          className= {`loopsAndUpgrades ${reactive}`}
           >
-            <UpgradesComponent upgrades={upgrades} upgrader= {upgrader} gameEnd={gameEnd} score={scoreObject}/>
-          </div>
 
-
-          <div
-            className = {`loopBunchColumn ${reactive}`}
-          >   
-            
             <div
-            className = {'scoreAndLoopBunch'}
-            >  
-              <div>
-                <ScoreComponent scoreObject = {scoreObject}/>      
-              </div>
-              <div>
-                <LoopBunchComponent score={scoreObject} loopBunch={loopBunch} />
-                </div>
+              className={`upgradesColumn ${reactive}`}
+            >
+              <UpgradesComponent upgrades={upgrades} upgrader= {upgrader} gameEnd={gameEnd} score={scoreObject}/>
             </div>
+
+
+            <div
+              className = {`loopBunchColumn ${reactive}`}
+            >   
+              
+              <div
+              className = {'scoreAndLoopBunch'}
+              >  
+                <div>
+                  <ScoreComponent scoreObject = {scoreObject}/>      
+                </div>
+                <div>
+                  <LoopBunchComponent score={scoreObject} loopBunch={loopBunch} />
+                  </div>
+              </div>
+            </div>
+            
           </div>
-          
-        </div>
-        <GameEndComponent gameEnd = {gameEnd}/>
+      </div>
+      
     </div>
   )
 }

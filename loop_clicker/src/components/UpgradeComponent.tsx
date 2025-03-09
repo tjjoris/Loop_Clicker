@@ -84,13 +84,19 @@ export default function UpgradeComponent({upgrade, index, upgrader, upgradesLeng
                             >
                                 {name}
                             </p>
-                            <p>
+                            <p
+                                className="upgradeInfo"
+                            >
                                 {description}
                             </p>
-                            <p>
+                            <p
+                                className="upgradeInfo"
+                            >
                                 count: {countStr}
                             </p>
-                            <p>
+                            <p
+                                className="upgradeInfo"
+                            >
                                 iteration per level {iterationPerLvlStr}
                             </p>
                         </div>

@@ -8,7 +8,6 @@ import broken_elastic_bit_05 from "/assets/broken_elastic_bit_05.png"
 import { useLoopStore } from "../oop/loop/useLoopStore";
 import Loop from "../oop/loop/Loop";
 import numToStr from "../oop/numToStr";
-import { useRef } from "react";
 
 
 export default function LoopComponent ({x, loop, incrementAmount: amountPerClick}: {x: number, loop: Loop, incrementAmount: number}) {

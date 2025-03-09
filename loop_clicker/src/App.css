@@ -149,8 +149,23 @@ div {
   background-color: #1a1a1a;
 }
 
+/* .upgrade.upgradeIsDisabled p {
+  color: white;
+} */
+/* .upgradeTitleAndInfo p{
+  color: green;
+} */
+
 .upgrade.upgradeIsEnabled button {
   background-color: #062031;
+}
+
+.upgradeIsEnabled p:not(.upgradeTitle):not(.upgradeCost) {
+  color: white;
+}
+
+.upgradeIsDisabled p:not(.upgradeTitle):not(.upgradeCost) {
+  color: dimgray;
 }
 
 
@@ -177,6 +192,13 @@ div {
   color: darkgreen;
 }
 
+
+/* .upgradeInfo{
+  color: white;
+} */
+
+
+
 .upgrade button {
   width: 400px;
 }
@@ -194,12 +216,13 @@ div {
 }
 
 .gameEnd {
-  position: absolute;
+  position: sticky;
   left: 0;
   top: 0;
   width: 100vw;
   height: 100vh;
   background-color: #103510;
+  z-index: 10;
 }
 
 .gameEnd div {
