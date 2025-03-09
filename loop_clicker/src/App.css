@@ -69,8 +69,9 @@ div {
 
 .score {
     position: absolute;
-    width: 300px;
+    width: 400px;
     /* background-color: black; */
+    text-align: center;
 }
 
 .loopBunch {

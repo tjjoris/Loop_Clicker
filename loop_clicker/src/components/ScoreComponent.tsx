@@ -17,10 +17,10 @@ export default function ScoreComponent({scoreObject}: {scoreObject: Score}) {
             className="score"
         >
             <h2>
-                Score: {scoreDisplayStr}
+                Points: {scoreDisplayStr}
             </h2>
             <h3>
-                clicks per second: {numToStr(clicksPerSecond)}
+                Loops destroyed per second: {numToStr(clicksPerSecond)}
             </h3>
             <p>
                 {/* counter: {counter} */}
