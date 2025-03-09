@@ -9,6 +9,7 @@ import { useLoopBunchStore } from "../oop/loop/useLoopBunchStore";
 export default function LoopBunchComponent({score, loopBunch}:{score: Score, loopBunch: LoopBunch}) {
     // const [clickedLoops, setClickedLoops] = useState<{id:number; x: number; y: number}[]>([]);
     const state = useLoopBunchStore(loopBunch);
+    const loops = state.loops;
     const scoreObject = score;
     let left : number = 100;
     let top : number = 100;
@@ -49,7 +50,7 @@ export default function LoopBunchComponent({score, loopBunch}:{score: Score, loo
             }}
             />
             {
-                state.map((clickedLoop, index) => {
+                loops.map((clickedLoop, index) => {
                     return (
                         <LoopComponent key={index} x={clickedLoop.getX()} loop = {clickedLoop} incrementAmount = {amountPerClick}/>
                     )

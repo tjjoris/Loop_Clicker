@@ -3,17 +3,17 @@ import Loop from "./Loop";
 type Listener = () => void;
 
 export default class LoopBunch {
-    private state: Loop[] = [];
+    private state: {loops: Loop[]; rotation: number; scale: number} = {loops: [], rotation: 0, scale: 1};
     private listners: Listener[] = [];
 
     public clickCreateLoop(x: number, y:number) {
         const loop = new Loop(x, y);
-        this.state = [...this.state, loop];
+        this.state.loops = [...this.state.loops, loop];
         console.log("click create loop");
         this.notify();
         setTimeout(() => {
-            this.state = this.state.filter((l) => l !== loop);
-            console.log("removed " + this.state.length);
+            this.state.loops = this.state.loops.filter((l) => l !== loop);
+            console.log("removed " + this.state.loops.length);
             this.notify();
         }, 1000);
     }
