@@ -10,6 +10,7 @@ export default function LoopBunchComponent({score, loopBunch}:{score: Score, loo
     // const [clickedLoops, setClickedLoops] = useState<{id:number; x: number; y: number}[]>([]);
     const state = useLoopBunchStore(loopBunch);
     const loops = state.loops;
+    const rotation = state.rotation;
     const scoreObject = score;
     let left : number = 100;
     let top : number = 100;
@@ -44,6 +45,7 @@ export default function LoopBunchComponent({score, loopBunch}:{score: Score, loo
             style={{
                 left: `${left}px`,
                 top: `${top}px`,
+                transform: `rotate(${rotation}deg)`
                 // moved position absolute into App.css
                 // width: `${width}px`,
                 // height: `${height}px`
