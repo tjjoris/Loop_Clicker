@@ -2,8 +2,10 @@ import { useUpgradeStore } from "../oop/upgrades/useUpgradeStore";
 import Upgrade from "../oop/upgrades/Upgrade";
 import Upgrader from "../oop/upgrades/Upgrader";
 import Super_Scissors from "../../assets/SuperScissors.png"
+import Hungry_Cops from "../../assets/Hungry_Cops.png"
 import Godzilla from "../../assets/GodzillaOCv2.png"
 import Tire_Fire from "../../assets/Tire_Firev2.png"
+import Deathstar from "../../assets/Deathstar.png"
 import Blackhole from "../../assets/Blackhole.png"
 import Bad_Programmer from "../../assets/Bad_Programmer.png"
 import numToStr from "../oop/numToStr";
@@ -15,7 +17,7 @@ import Score from "../oop/game/Score";
  */
 
 export default function UpgradeComponent({upgrade, index, upgrader, upgradesLength, gameEnd, score}: {upgrade: Upgrade, index: number, upgrader: Upgrader, upgradesLength: number, gameEnd: GameEnd, score: Score}) {
-    const upgradeImages: string[] = [Super_Scissors, Tire_Fire, Godzilla, Godzilla, Godzilla, Blackhole, Bad_Programmer];
+    const upgradeImages: string[] = [Super_Scissors, Hungry_Cops, Tire_Fire, Godzilla, Godzilla, Deathstar, Blackhole, Bad_Programmer];
     const state = useUpgradeStore(upgrade);
     const name: string = state.name;
     const description: string = state.description;

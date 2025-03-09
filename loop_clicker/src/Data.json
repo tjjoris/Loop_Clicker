@@ -10,45 +10,52 @@
                 "costMult": 1.4
             },
             {
-                "name": "Tire Fire",
-                "description": "The ozone layer is a loop too right?",
+                "name": "Hungry Cops",
+                "description": "They work hard, they eat hard.",
                 "cost": 64,
                 "incrementAmount": 4,
+                "costMult": 1.4
+            },
+            {
+                "name": "Tire Fire",
+                "description": "The ozone layer is a loop too right?",
+                "cost": 512,
+                "incrementAmount": 32,
                 "costMult": 1.4
             },       
             {
                 "name": "Savvy Lawyers",
                 "description": "Finding and breaking Contract Loopholes is what thier good at. No one said they were saints.",
-                "cost": 512,
-                "incrementAmount": 32,
+                "cost": 4096,
+                "incrementAmount": 256,
                 "costMult": 1.4
             },  
             {
                 "name": "Kaiju",
                 "description": "Each giant monster wreaks havoc on rollercoasters in it's own unique way.",
-                "cost": 4096,
-                "incrementAmount": 256,
-                "costMult": 1.4
-            },
-            {
-                "name": "Moon Shaped Planet Destroyer",
-                "description": "\"It's not a moon.\"",
                 "cost": 32768,
                 "incrementAmount": 2048,
                 "costMult": 1.4
             },
             {
-                "name": "Black Hole",
-                "description": "\"Yo momma so fat...\"",
+                "name": "Moon Shaped Planet Destroyer",
+                "description": "\"It's not a moon.\"",
                 "cost": 262144,
                 "incrementAmount": 16384,
                 "costMult": 1.4
             },
             {
-                "name": "bad programmer",
-                "description": "\"What programming language do I use? Chat GPT.\"",
+                "name": "Black Hole",
+                "description": "\"Yo momma so fat...\"",
                 "cost": 2097152,
                 "incrementAmount": 131072,
+                "costMult": 1.4
+            },
+            {
+                "name": "bad programmer",
+                "description": "\"What programming language do I use? Chat GPT.\"",
+                "cost": 16777216,
+                "incrementAmount": 1048576,
                 "costMult": 1
             }
         ]
