@@ -4,9 +4,11 @@ import Score from "../oop/game/Score";
 import LoopComponent from "./Loop";
 import LoopBunch from "../oop/loop/LoopBunch";
 import { useLoopBunchStore } from "../oop/loop/useLoopBunchStore";
+import GameEnd from "../oop/game/GameEnd";
+import { UseGameEndStore } from "../oop/game/UseGameEndStore";
 
 
-export default function LoopBunchComponent({score, loopBunch}:{score: Score, loopBunch: LoopBunch}) {
+export default function LoopBunchComponent({score, loopBunch, gameEnd}:{score: Score, loopBunch: LoopBunch, gameEnd: GameEnd}) {
     // const [clickedLoops, setClickedLoops] = useState<{id:number; x: number; y: number}[]>([]);
     const state = useLoopBunchStore(loopBunch);
     const loops = state.loops;
@@ -17,8 +19,9 @@ export default function LoopBunchComponent({score, loopBunch}:{score: Score, loo
     // let width: number = 200;
     // let height: number = 200;
     const amountPerClick = score.getAmountPerClick();
+    const gameEndState = UseGameEndStore(gameEnd);
     
-    console.log("loop bunch re-rendered");
+    // console.log("loop bunch re-rendered");
     // const clickToAddLoop = ((event: React.MouseEvent) => {
     //     console.log("clicked in loop");
     //     scoreObject.incrementScore(1);
@@ -35,29 +38,33 @@ export default function LoopBunchComponent({score, loopBunch}:{score: Score, loo
         scoreObject.incrementScore(amountPerClick);
         loopBunch.clickCreateLoop(event.clientX, event.clientY);
     })
-    return (
-        <>
-            <img
-            className="loopBunch"
-            src={elastic_ball_image}
-            draggable="false"
-            onClick={clickEvent}
-            style={{
-                left: `${left}px`,
-                top: `${top}px`,
-                transform: `rotate(${rotation}deg)`
-                // moved position absolute into App.css
-                // width: `${width}px`,
-                // height: `${height}px`
-            }}
-            />
-            {
-                loops.map((clickedLoop, index) => {
-                    return (
-                        <LoopComponent key={index} x={clickedLoop.getX()} loop = {clickedLoop} incrementAmount = {amountPerClick}/>
-                    )
-                })
-            }
-        </>
-    )
+    if (gameEndState) {
+        return <></>;
+    } else {
+        return (
+            <>
+                <img
+                className="loopBunch"
+                src={elastic_ball_image}
+                draggable="false"
+                onClick={clickEvent}
+                style={{
+                    left: `${left}px`,
+                    top: `${top}px`,
+                    transform: `rotate(${rotation}deg)`
+                    // moved position absolute into App.css
+                    // width: `${width}px`,
+                    // height: `${height}px`
+                }}
+                />
+                {
+                    loops.map((clickedLoop, index) => {
+                        return (
+                            <LoopComponent key={index} x={clickedLoop.getX()} loop = {clickedLoop} incrementAmount = {amountPerClick}/>
+                        )
+                    })
+                }
+            </>
+        )
+    }
 }

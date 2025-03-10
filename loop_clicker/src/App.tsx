@@ -49,7 +49,6 @@ function App() {
   return (
     <div>
       
-      <GameEndComponent gameEnd = {gameEnd}/>
       <div 
         className='mainBoard'
       >
@@ -72,15 +71,17 @@ function App() {
               className = {'scoreAndLoopBunch'}
               >  
                 <div>
-                  <ScoreComponent scoreObject = {scoreObject}/>      
+                  <ScoreComponent scoreObject = {scoreObject} gameEnd={gameEnd}/>      
                 </div>
                 <div>
-                  <LoopBunchComponent score={scoreObject} loopBunch={loopBunch} />
+                  <LoopBunchComponent score={scoreObject} loopBunch={loopBunch} gameEnd={gameEnd}/>
                   </div>
               </div>
             </div>
             
           </div>
+          
+      <GameEndComponent gameEnd = {gameEnd}/>
       </div>
       
     </div>

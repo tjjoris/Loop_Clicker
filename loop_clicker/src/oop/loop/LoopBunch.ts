@@ -10,6 +10,7 @@ export default class LoopBunch {
 
     constructor() {
         this.startInterval();
+        console.log("loop bunch constructor");
     }
 
     private startInterval() {
@@ -46,7 +47,7 @@ export default class LoopBunch {
 
     public subscribe(listner: Listener) { 
         this.listners.push(listner);
-        console.log("loop bunch subscribing " + this.listners.length)
+        // console.log("loop bunch subscribing " + this.listners.length)
             return () => {
                 this.listners = this.listners.filter((l) => l !== listner);
             }

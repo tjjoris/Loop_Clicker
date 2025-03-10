@@ -40,10 +40,10 @@ div {
 
 .loopBunchColumn {
   width: 400px;
-  height: 300px;
+  height: 315px;
   background-color: #242424;
   position:fixed;
-  left: 0px;
+  left: 2px;
   top: 0px;
   width:413px
 }
@@ -215,14 +215,25 @@ div {
   margin: 5px;
 }
 
-.gameEnd {
-  position: sticky;
+/* .gameEnd {
+  z-index: 10;
+  position: static;
   left: 0;
   top: 0;
   width: 100vw;
   height: 100vh;
   background-color: #103510;
+  margin: -34px -8px;
+} */
+
+.gameEnd {
   z-index: 10;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #103510;
 }
 
 .gameEnd div {
@@ -250,6 +261,6 @@ div {
 }
 
 .teamImage {
-  width: 125px;
-  height: 125px;
+  width: 10vh;
+  height: 10vh;
 }

@@ -19,9 +19,6 @@ export default function GameEndComponent ({gameEnd}: {gameEnd: GameEnd}) {
                     <h1>
                         Congratulations, you broke the game loop!
                     </h1>
-                    <h2>
-                        Credits:
-                    </h2>
                     <div
                         className="teamMembers"
                     >   
