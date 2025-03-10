@@ -1,0 +1,63 @@
+[
+    {   
+        "key" : "repeatable_upgrades",
+        "value": [
+            {
+                "name": "Super Scissors",
+                "description": "A safe and stylish way to destroy those pesky loops of rubber known as elastics. Designed by Guy Fieri.",
+                "cost": 8,
+                "incrementAmount": 0.5,
+                "costMult": 1.4
+            },
+            {
+                "name": "Hungry Cops",
+                "description": "Known to regularly destroy fried loops of dough.",
+                "cost": 64,
+                "incrementAmount": 4,
+                "costMult": 1.4
+            },
+            {
+                "name": "Tire Fire",
+                "description": "Mountains of thick rubber loops being a problem? Fire is a great solution!",
+                "cost": 512,
+                "incrementAmount": 32,
+                "costMult": 1.4
+            },       
+            {
+                "name": "Savvy Lawyers",
+                "description": "Finding and breaking Contract Loopholes is what they're good at. No one said they were saints.",
+                "cost": 4096,
+                "incrementAmount": 256,
+                "costMult": 1.4
+            },  
+            {
+                "name": "Kaiju",
+                "description": "Each giant monster wreaks havoc on rollercoasters in it's own unique way.",
+                "cost": 32768,
+                "incrementAmount": 2048,
+                "costMult": 1.4
+            },
+            {
+                "name": "Moon Shaped Planet Destroyer",
+                "description": "This \"not a moon\" only targets planets with rings.",
+                "cost": 262144,
+                "incrementAmount": 16384,
+                "costMult": 1.4
+            },
+            {
+                "name": "Black Hole",
+                "description": "Singularities are probably good at destroying any loop you can throw at them.",
+                "cost": 2097152,
+                "incrementAmount": 131072,
+                "costMult": 1.4
+            },
+            {
+                "name": "bad programmer",
+                "description": "Creates memory leaks, which cause your main program loop to crash.",
+                "cost": 16777216,
+                "incrementAmount": 1048576,
+                "costMult": 1
+            }
+        ]
+    }
+]

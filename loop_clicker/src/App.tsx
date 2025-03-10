@@ -1,34 +1,90 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+//App.tsx
 import './App.css'
+import LoopBunchComponent from './components/LoopBunch'
+import ScoreComponent from './components/ScoreComponent'
+import GameEndComponent from './components/GameEndComponent'
+import Score from './oop/game/Score'
+import LoopHandler from './oop/loop/LoopHandler'
+import { useLoopHandlerStore } from './oop/loop/UseLoopHandlerStore'
+import Loop from './oop/loop/Loop'
+import { useRef } from 'react'
+import Upgrades from './oop/upgrades/Upgrades'
+import UpgradesComponent from './components/UpgradesComponent'
+import ScoreUpgradeObserver from './oop/game/ScoreUpgradeObserver'
+import LoopBunch from './oop/loop/LoopBunch'
+import Data from './Data.json'
+import { useEffect } from 'react'
+import Upgrader from './oop/upgrades/Upgrader'
+import GameEnd from './oop/game/GameEnd'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const dataRef = useRef(Data);
+  const data = dataRef.current;
+  const loopHandlerRef = useRef(new LoopHandler());
+  const loopHandler = loopHandlerRef.current;
+  const loopBunchRef = useRef(new LoopBunch());
+  const loopBunch = loopBunchRef.current;
+  const scoreUpgradeObserverRef = useRef(new ScoreUpgradeObserver());
+  const scoreUpgradeObserver = scoreUpgradeObserverRef.current;
+  const scoreObjectRef = useRef(new Score(loopHandler, scoreUpgradeObserver));
+  const scoreObject = scoreObjectRef.current;
+  const upgradesRef = useRef(new Upgrades(scoreObject, scoreUpgradeObserver, data[0].value));
+  const upgrades = upgradesRef.current;
+  const upgraderRef = useRef(new Upgrader(upgrades.getState()));
+  const upgrader = upgraderRef.current;
+  const gameEndRef = useRef(new GameEnd());
+  const gameEnd = gameEndRef.current;
+  const loopHandlerState: Loop | null = useLoopHandlerStore(loopHandler);
+  console.log("app render");
+
+  let reactive : string = "desktop";
+  if (window.innerWidth < 820) {
+    reactive = "mobile";
+    console.log("mobile");
+  }
+  useEffect(() => {
+    console.log("loopHandlerState changed:", loopHandlerState);
+  }, [loopHandlerState])
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div>
+      
+      <div 
+        className='mainBoard'
+      >
+        <div
+          className= {`loopsAndUpgrades ${reactive}`}
+          >
+
+            <div
+              className={`upgradesColumn ${reactive}`}
+            >
+              <UpgradesComponent upgrades={upgrades} upgrader= {upgrader} gameEnd={gameEnd} score={scoreObject}/>
+            </div>
+
+
+            <div
+              className = {`loopBunchColumn ${reactive}`}
+            >   
+              
+              <div
+              className = {'scoreAndLoopBunch'}
+              >  
+                <div>
+                  <ScoreComponent scoreObject = {scoreObject} gameEnd={gameEnd}/>      
+                </div>
+                <div>
+                  <LoopBunchComponent score={scoreObject} loopBunch={loopBunch} gameEnd={gameEnd}/>
+                  </div>
+              </div>
+            </div>
+            
+          </div>
+          
+      <GameEndComponent gameEnd = {gameEnd}/>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+      
+    </div>
   )
 }
 
