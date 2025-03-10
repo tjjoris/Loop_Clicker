@@ -107,7 +107,7 @@ div {
 .upgradesColumn.desktop{
   position:relative;
   top: 0px;
-  left: 400px;
+  left: 405px;
 }
 
 .upgradesComponent {
@@ -189,7 +189,7 @@ div {
 }
 
 .upgradeCost {
-  color: darkgreen;
+  color: greenyellow;
 }
 
 
@@ -211,7 +211,7 @@ div {
   pointer-events: none;
   width: 100px;
   height: 100px;
-  background-color: whitesmoke;
+  background-color: #1a1a1a;
   margin: 5px;
 }
 
