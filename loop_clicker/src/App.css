@@ -232,3 +232,24 @@ div {
 .gameEnd div p {
   margin: 0px 20px;
 }
+
+.teamMembers {
+  display: flex;
+  flex-direction: column;
+}
+
+.teamMember {
+  display: flex;
+  flex-direction: row;
+}
+
+.teamMemberName {
+  display: flex;
+  width: 300px;
+  font-size: 1.3em;
+}
+
+.teamImage {
+  width: 125px;
+  height: 125px;
+}

@@ -19,22 +19,55 @@ export default function GameEndComponent ({gameEnd}: {gameEnd: GameEnd}) {
                     <h1>
                         Congratulations, you broke the game loop!
                     </h1>
-                    <br></br>
                     <h2>
                         Credits:
                     </h2>
-                    <br></br>
-                    <p>
-                        Art: Kaidan Kosmos
-                    </p>
-                    <br></br>
-                    <p>
-                        Programming: Luke Johnson
-                    </p>
-                    <br></br>
-                    <p>
-                        Consultation: Jacob Johnson
-                    </p>
+                    <div
+                        className="teamMembers"
+                    >   
+                        <div
+                            className="teamMember"
+                        >
+                            <div
+                                className="teamMemberName"
+                            >
+                                Art: Kaidan Kosmos
+                            </div>
+                            <div>
+                                <img src={Kay}
+                                    className="teamImage"
+                                />
+                            </div>
+                        </div>
+                        <div
+                            className="teamMember"
+                        >
+                            <div
+                                className="teamMemberName"
+                            >
+                                Programming: Luke Johnson
+                            </div>
+                            <div>
+                                <img src={Luke}
+                                    className="teamImage"
+                                />
+                            </div>
+                        </div>
+                        <div
+                            className="teamMember"
+                        >
+                            <div
+                                className="teamMemberName"
+                            >
+                                Consultation: Jacob Johnson
+                            </div>
+                            <div>
+                                <img src={Jake}
+                                    className="teamImage"
+                                />
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div> 
         );

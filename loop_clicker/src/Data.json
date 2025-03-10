@@ -4,7 +4,7 @@
         "value": [
             {
                 "name": "Super Scissors",
-                "description": "A safe and stylish way to cut elastic bands. Designed by Guy Fieri",
+                "description": "A safe and stylish way to cut elastic bands. Designed by Guy Fieri.",
                 "cost": 8,
                 "incrementAmount": 0.5,
                 "costMult": 1.4
