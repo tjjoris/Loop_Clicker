@@ -22,6 +22,12 @@ export default class LoopBunch {
         })
     }
 
+    public stopInterval() {
+        if (this.intervalId != null) {
+            clearInterval(this.intervalId);
+        }
+    }
+
     private animateLoopBunch() {
         let tempRotation = this.state.rotation + this.rotationRate;
         if (tempRotation > 360) {
