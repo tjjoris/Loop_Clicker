@@ -38,7 +38,7 @@ function App() {
   console.log("app render");
 
   let reactive : string = "desktop";
-  if (window.innerWidth < 600) {
+  if (window.innerWidth < 820) {
     reactive = "mobile";
     console.log("mobile");
   }

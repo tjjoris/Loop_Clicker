@@ -56,7 +56,7 @@ export default function GameEndComponent ({gameEnd}: {gameEnd: GameEnd}) {
                             <div
                                 className="teamMemberName"
                             >
-                                Consultation: Jacob Johnson
+                                Consultation, Cover Image: Jacob Johnson
                             </div>
                             <div>
                                 <img src={Jake}
