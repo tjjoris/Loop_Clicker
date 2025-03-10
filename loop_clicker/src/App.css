@@ -40,10 +40,10 @@ div {
 
 .loopBunchColumn {
   width: 400px;
-  height: 300px;
+  height: 315px;
   background-color: #242424;
   position:fixed;
-  left: 0px;
+  left: 2px;
   top: 0px;
   width:413px
 }
@@ -69,8 +69,9 @@ div {
 
 .score {
     position: absolute;
-    width: 300px;
+    width: 400px;
     /* background-color: black; */
+    text-align: center;
 }
 
 .loopBunch {
@@ -148,8 +149,23 @@ div {
   background-color: #1a1a1a;
 }
 
+/* .upgrade.upgradeIsDisabled p {
+  color: white;
+} */
+/* .upgradeTitleAndInfo p{
+  color: green;
+} */
+
 .upgrade.upgradeIsEnabled button {
   background-color: #062031;
+}
+
+.upgradeIsEnabled p:not(.upgradeTitle):not(.upgradeCost) {
+  color: white;
+}
+
+.upgradeIsDisabled p:not(.upgradeTitle):not(.upgradeCost) {
+  color: dimgray;
 }
 
 
@@ -158,10 +174,9 @@ div {
   pointer-events: none;
 }
 
-.upgrade p :not(.upgradeCost.upgradeTitle) {
+/* .upgrade p :not(.upgradeCost.upgradeTitle) {
 
-  color: cornsilk;
-}
+} */
 
 .upgradeTitleAndInfo {
   width: 400px;
@@ -177,6 +192,13 @@ div {
   color: darkgreen;
 }
 
+
+/* .upgradeInfo{
+  color: white;
+} */
+
+
+
 .upgrade button {
   width: 400px;
 }
@@ -191,4 +213,54 @@ div {
   height: 100px;
   background-color: whitesmoke;
   margin: 5px;
+}
+
+/* .gameEnd {
+  z-index: 10;
+  position: static;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #103510;
+  margin: -34px -8px;
+} */
+
+.gameEnd {
+  z-index: 10;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #103510;
+}
+
+.gameEnd div {
+  margin: 10px;
+}
+
+.gameEnd div p {
+  margin: 0px 20px;
+}
+
+.teamMembers {
+  display: flex;
+  flex-direction: column;
+}
+
+.teamMember {
+  display: flex;
+  flex-direction: row;
+}
+
+.teamMemberName {
+  display: flex;
+  width: 300px;
+  font-size: 1.3em;
+}
+
+.teamImage {
+  width: 10vh;
+  height: 10vh;
 }

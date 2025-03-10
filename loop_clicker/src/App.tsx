@@ -2,6 +2,7 @@
 import './App.css'
 import LoopBunchComponent from './components/LoopBunch'
 import ScoreComponent from './components/ScoreComponent'
+import GameEndComponent from './components/GameEndComponent'
 import Score from './oop/game/Score'
 import LoopHandler from './oop/loop/LoopHandler'
 import { useLoopHandlerStore } from './oop/loop/UseLoopHandlerStore'
@@ -14,6 +15,7 @@ import LoopBunch from './oop/loop/LoopBunch'
 import Data from './Data.json'
 import { useEffect } from 'react'
 import Upgrader from './oop/upgrades/Upgrader'
+import GameEnd from './oop/game/GameEnd'
 
 function App() {
   const dataRef = useRef(Data);
@@ -30,6 +32,8 @@ function App() {
   const upgrades = upgradesRef.current;
   const upgraderRef = useRef(new Upgrader(upgrades.getState()));
   const upgrader = upgraderRef.current;
+  const gameEndRef = useRef(new GameEnd());
+  const gameEnd = gameEndRef.current;
   const loopHandlerState: Loop | null = useLoopHandlerStore(loopHandler);
   console.log("app render");
 
@@ -43,37 +47,43 @@ function App() {
   }, [loopHandlerState])
 
   return (
-    <div 
-      className='mainBoard'
-    >
-      <div
-        className= {`loopsAndUpgrades ${reactive}`}
-        >
-
-          <div
-            className={`upgradesColumn ${reactive}`}
+    <div>
+      
+      <div 
+        className='mainBoard'
+      >
+        <div
+          className= {`loopsAndUpgrades ${reactive}`}
           >
-            <UpgradesComponent upgrades={upgrades} upgrader= {upgrader}/>
-          </div>
 
-
-          <div
-            className = {`loopBunchColumn ${reactive}`}
-          >   
-            
             <div
-            className = {'scoreAndLoopBunch'}
-            >  
-              <div>
-                <ScoreComponent scoreObject = {scoreObject}/>      
-              </div>
-              <div>
-                <LoopBunchComponent score={scoreObject} loopBunch={loopBunch} />
-                </div>
+              className={`upgradesColumn ${reactive}`}
+            >
+              <UpgradesComponent upgrades={upgrades} upgrader= {upgrader} gameEnd={gameEnd} score={scoreObject}/>
             </div>
+
+
+            <div
+              className = {`loopBunchColumn ${reactive}`}
+            >   
+              
+              <div
+              className = {'scoreAndLoopBunch'}
+              >  
+                <div>
+                  <ScoreComponent scoreObject = {scoreObject} gameEnd={gameEnd}/>      
+                </div>
+                <div>
+                  <LoopBunchComponent score={scoreObject} loopBunch={loopBunch} gameEnd={gameEnd}/>
+                  </div>
+              </div>
+            </div>
+            
           </div>
           
-        </div>
+      <GameEndComponent gameEnd = {gameEnd}/>
+      </div>
+      
     </div>
   )
 }

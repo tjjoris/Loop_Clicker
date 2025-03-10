@@ -8,19 +8,16 @@ export default class Loop {
     private x: number;
     private y: number;
     private listners: Listener[] = [];
+    private maxLoopSprites: number = 5;
+    private loopSpriteIndex: number = 0;
+    private rotationDeg: number = 0;
 
     constructor(x: number, y: number) {
         this.x = x;
         this.y = y;
         this.startInterval(30);
-        // this.state = {
-        //     isEnabled: true,
-        //     x: 100,
-        //     y: 100,
-        //     width: 100,
-        //     height: 100,
-        //     spriteName: "elastic"
-        // }
+        this.loopSpriteIndex = Math.floor(Math.random() * this.maxLoopSprites);
+        this.rotationDeg = Math.floor(Math.random() * 360);
     }
     startInterval(interval: number) {
         setInterval(() => {
@@ -39,6 +36,18 @@ export default class Loop {
 
     public getY() {
         return this.y;
+    }
+
+    public getRotationDeg() {
+        return this.rotationDeg;
+    }
+
+    public setMaxLoopSprites(value: number) {
+        this.maxLoopSprites = value;
+    }
+
+    public getLoopSpriteIndex() {
+        return this.loopSpriteIndex;
     }
 
     public subscribe(listner: Listener) { 
